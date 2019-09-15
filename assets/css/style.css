@@ -1,0 +1,35 @@
+body{
+    font-family: 'Europa', sans-serif;
+}
+.landing{
+    height: 100vh;
+}
+.hero{
+    display: block;
+    margin-top: 50%;
+    transform: translateY(-50%);
+}
+.spinny {
+    left: 50%;
+    display: block;
+    text-align: center;
+    transform: translateX(-50%);
+    -webkit-transform: translate(-50%, 0);
+    animation: fade_move_down 3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+.site-info-container{
+    padding: 0 3rem;
+}
+@keyframes fade_move_down {
+    0% {
+          transform: translate(0, -20px);
+          opacity: 0;
+    }
+    50% {
+          opacity: 1;
+    }
+    100% {
+          transform: translate(0, 20px);
+          opacity: 0;
+    }
+}
