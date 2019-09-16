@@ -30,7 +30,7 @@ var aboutScreenState = {
 };
 
 // Add references to jQuery selections of HTML elements that are permanently on the page
-ui.add$ToRef('about-screen', '.about');
+ui.add$ToRef('about-screen', '#about');
 ui.add$ToRef('get-started-button', '.get-started-button');
 
 // Add our new state to the state machine

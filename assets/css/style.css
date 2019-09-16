@@ -6,10 +6,12 @@ body{
     height: 100vh;
 }
 
+.landing-start-button{
+    cursor: pointer;
+}
+
 .hero{
-    display: block;
-    margin-top: 50%;
-    transform: translateY(-50%);
+    margin: 0 auto;
 }
 
 .spinny {
