@@ -116,17 +116,17 @@ var ui = (function(){
             // If we have a callback function
             if (callback !== undefined) {
 
-                // Fade the HTML element in and then call the callback function
-                jqueryObj.fadeIn(SHOW_TRANSITION_DURATION, SHOW_TRANSITION_EASING, callback);
+                // Transition the HTML element in and then call the callback function
+                jqueryObj.fadeIn(SHOW_OPTIONS.duration, SHOW_OPTIONS.easing, callback);
             }
             // If we do not have a callback function
             else {
 
-                // Fade the HTML element in
-                jqueryObj.fadeIn(SHOW_TRANSITION_DURATION, SHOW_TRANSITION_EASING);
+                // Transition the HTML element in
+                jqueryObj.fadeIn(SHOW_OPTIONS.duration, SHOW_OPTIONS.easing);
             }
         },
-        
+
         hide: function (jqueryObj, callback = undefined) {
             //#region Error Checking
 
@@ -142,14 +142,14 @@ var ui = (function(){
             // If we have a callback function
             if (callback !== undefined) {
 
-                // Fade the HTML element out and then call the callback function
-                jqueryObj.fadeOut(HIDE_TRANSITION_DURATION, HIDE_TRANSITION_EASING, callback);
+                // Transition the HTML element out and then call the callback function
+                jqueryObj.fadeOut(SHOW_OPTIONS.duration, SHOW_OPTIONS.easing, callback);
             }
             // If we do not have a callback function
             else {
 
-                // Fade the HTML element out
-                jqueryObj.fadeOut(HIDE_TRANSITION_DURATION, HIDE_TRANSITION_EASING);
+                // Transition the HTML element out
+                jqueryObj.fadeOut(SHOW_OPTIONS.duration, SHOW_OPTIONS.easing);
             }
         },
     };

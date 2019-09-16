@@ -29,4 +29,9 @@ var landingScreenState = {
     },
 };
 
+// Add references to jQuery selections of HTML elements that are permanently on the page
+ui.add$ToRef('landing-screen', '.landing');
+ui.add$ToRef('landing-start-button', '.landing-start-button');
+
+// Add our new state to the state machine
 sm.addState('landing-screen', landingScreenState);
