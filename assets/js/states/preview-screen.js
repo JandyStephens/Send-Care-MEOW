@@ -2,6 +2,13 @@ var previewScreenState = {
 
     unloadState: function (nextState) {
 
+        // Start hiding the customization screen
+        ui.get$FromRef('preview-screen').css('position', 'absolute');
+        ui.hideByRef('preview-screen', function(){
+            console.log('done hiding preview screen');
+            ui.get$FromRef('preview-screen').css('position', 'static');
+        });
+
         // START: General code to run after this screen finishes transitioning out and immediately before the state switches
 
         //   >>> Replace this line with any code that may make sense here <<<
@@ -10,6 +17,8 @@ var previewScreenState = {
     },
     
     loadState: function (prevState) {
+
+        window.history.pushState({storedState: 'preview-screen'}, 'Care Package Preview', '#preview-screen')
 
         // START: Code to run before this screen starts transitioning in
         // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
@@ -44,19 +53,8 @@ var previewScreenState = {
                 ui.get$FromRef('use-preview-button').off('click');
                 ui.get$FromRef('cancel-preview-button').off('click');
 
-                // Start hiding the customization screen
-                ui.hideByRef('preview-screen', function(){
-                    console.log('done hiding preview screen');
-
-                    // START: Code to run right before going to the package sent state
-
-                    //   >>> Replace this line with any code that may make sense here <<<
-
-                    // END: Code to run right before going to the package sent state
-
-                    // Now that we're done hiding the customization screen, switch to the package sent screen
-                    sm.switchState('package-sent-screen');
-                });
+                // Switch to the package sent screen
+                sm.switchState('package-sent-screen');
             });
 
             // Attach a click event handler to the cancel button (done here so its not clickable until fully on screen)
@@ -73,26 +71,15 @@ var previewScreenState = {
                 ui.get$FromRef('use-preview-button').off('click');
                 ui.get$FromRef('cancel-preview-button').off('click');
 
-                // Start hiding the customization screen
-                ui.hideByRef('preview-screen', function(){
-                    console.log('done hiding preview screen');
-
-                    // START: Code to run right before going back to the create package state
-
-                    //   >>> Replace this line with any code that may make sense here <<<
-
-                    // END: Code to run right before going back to the create package state
-
-                    // Now that we're done hiding the customization screen, switch back to the create package screen
-                    sm.switchState('create-package-screen');
-                });
+                // Switch back to the create package screen
+                sm.switchState('create-package-screen');
             });
         });
     },
 };
 
 // Add references to jQuery selections of HTML elements that are permanently on the page
-ui.add$ToRef('preview-screen', '.preview-screen');
+ui.add$ToRef('preview-screen', '#preview-screen');
 ui.add$ToRef('cancel-preview-button', '.cancel-preview-button');
 ui.add$ToRef('use-preview-button', '.use-preview-button');
 

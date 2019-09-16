@@ -1,5 +1,12 @@
 body{
     font-family: 'Europa', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+section{
+    width: 100%;
+    top: 0px;
 }
 
 .landing{
