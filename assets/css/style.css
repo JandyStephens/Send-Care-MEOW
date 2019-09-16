@@ -1,15 +1,24 @@
 body{
     font-family: 'Europa', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+section{
+    width: 100%;
+    top: 0px;
 }
 
 .landing{
     height: 100vh;
 }
 
+.landing-start-button{
+    cursor: pointer;
+}
+
 .hero{
-    display: block;
-    margin-top: 50%;
-    transform: translateY(-50%);
+    margin: 0 auto;
 }
 
 .spinny {
@@ -23,6 +32,16 @@ body{
 
 .site-info-container{
     padding: 0 3rem;
+}
+
+.care-package-form{
+    margin-top: 5rem;
+}
+
+.gif-results{
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    display: none;
 }
 
 @keyframes fade_move_down {

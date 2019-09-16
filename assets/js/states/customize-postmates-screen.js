@@ -2,6 +2,13 @@ var customizePostmatesScreenState = {
 
     unloadState: function (nextState) {
 
+        // Start hiding the customization screen
+        ui.get$FromRef('customize-postmates-screen').css('position', 'absolute');
+        ui.hideByRef('customize-postmates-screen', function(){
+            console.log('done hiding customize postmates screen');
+            ui.get$FromRef('customize-postmates-screen').css('position', 'static');
+        });
+
         // START: General code to run after this screen finishes transitioning out and immediately before the state switches
 
         //   >>> Replace this line with any code that may make sense here <<<
@@ -10,6 +17,9 @@ var customizePostmatesScreenState = {
     },
     
     loadState: function (prevState) {
+
+        // Push this state to the browser history
+        history.pushState({storedState: 'customize-postmates-screen'}, 'Customize your Postmates Delivery', '#customize-postmates-screen');
 
         // START: Code to run before this screen starts transitioning in
         // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
@@ -45,19 +55,8 @@ var customizePostmatesScreenState = {
                 ui.get$FromRef('use-postmates-button').off('click');
                 ui.get$FromRef('cancel-postmates-button').off('click');
 
-                // Start hiding the customization screen
-                ui.hideByRef('customize-postmates-screen', function(){
-                    console.log('done hiding customize postmates screen');
-
-                    // START: Code to run right before going back to the create package state
-
-                    //   >>> Replace this line with any code that may make sense here <<<
-
-                    // END: Code to run right before going back to the create package state
-
-                    // Now that we're done hiding the customization screen, switch back to the create package screen
-                    sm.switchState('create-package-screen');
-                });
+                // Switch back to the create package screen
+                sm.switchState('create-package-screen');
             });
 
             // Attach a click event handler to the cancel button (done here so its not clickable until fully on screen)
@@ -75,27 +74,15 @@ var customizePostmatesScreenState = {
                 ui.get$FromRef('use-postmates-button').off('click');
                 ui.get$FromRef('cancel-postmates-button').off('click');
 
-                // Start hiding the customization screen
-                ui.hideByRef('customize-postmates-screen', function(){
-                    console.log('done hiding customize postmates screen');
-
-                    // START: Code to run right before going back to the create package state
-                    // I'd suggest either clearing the form or resetting it to saved data here or immediately upon clicking the cancel button. Depends on if you want the user to see the cancellation or not.
-
-                    //   >>> Replace this line with any code that may make sense here <<<
-
-                    // END: Code to run right before going back to the create package state
-
-                    // Now that we're done hiding the customization screen, switch back to the create package screen
-                    sm.switchState('create-package-screen');
-                });
+                // Switch back to the create package screen
+                sm.switchState('create-package-screen');
             });
         });
     },
 };
 
 // Add references to jQuery selections of HTML elements that are permanently on the page
-ui.add$ToRef('customize-postmates-screen', '.postmates-form');
+ui.add$ToRef('customize-postmates-screen', '#customize-postmates-screen');
 ui.add$ToRef('cancel-postmates-button', '.cancel-postmates-button');
 ui.add$ToRef('use-postmates-button', '.use-postmates-button');
 
