@@ -1,25 +1,34 @@
-var app = {
+var app = (function(){
 
-    initialize: function(){
+    var privateFeatures = {
 
-        // Open the database we'll be using to save data
-        database.open();
+    };
 
-        // Attach an event handler to the page unloading; so we can safely close the database if we need to
-        $(window).on('unload', function(){
-            console.log('handling page unloading');
+    var publicFeatures = {
 
-            // Close the database before leaving the page to avoid any sort of issues if we're utilizing a database stream
-            database.close();
-        });
+        initialize: function(){
+    
+            // Open the database we'll be using to save data
+            database.open();
+    
+            // Attach an event handler to the page unloading; so we can safely close the database if we need to
+            $(window).on('unload', function(){
+                console.log('handling page unloading');
+    
+                // Close the database before leaving the page to avoid any sort of issues if we're utilizing a database stream
+                database.close();
+            });
+    
+            // Hide all sections to begin with
+            $('section').hide();
+    
+            // Now switch to the landing page
+            sm.switchState('landing-screen');
+        },
+    };
 
-        // Hide all sections to begin with
-        $('section').hide();
-
-        // Now switch to the landing page
-        sm.switchState('landing-screen');
-    },
-};
+    return publicFeatures;
+})();
 
 // Start the app
 app.initialize();

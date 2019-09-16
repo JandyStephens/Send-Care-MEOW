@@ -87,7 +87,7 @@
       </div>
       <div class="row mb-5">
         <div class="col text-center">
-          <button class="btn btn-primary">Click to get started!</button>
+          <button class="btn btn-primary get-started-button">Click to get started!</button>
         </div>
       </div>
     </div>
@@ -95,7 +95,7 @@
   <section class="create-package">
     <div class="container">
       <div class="row mt-5">
-        <div class="col-md-6 text-center">
+        <div class="col-md-6 text-center customize-button customize-message-button">
           <div class="card package-item w-50">
             <div class="card-body">
               <h4 class="card-title">Add a Personal Message!</h4>
@@ -117,7 +117,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 text-center">
+        <div class="col-md-6 text-center customize-button customize-postmates-button">
           <div class="card package-item w-50">
             <div class="card-body">
               <h4 class="card-title">Add a Postmates delivery!</h4>
@@ -141,10 +141,10 @@
         </div>
       </div>
       <div class="row mt-5">
-        <div class="col-md-6 text-center">
+        <div class="col-md-6 text-center customize-button customize-meme-button">
           <div class="card package-item w-50">
             <div class="card-body">
-              <h4 class="card-title">Add a Personal Message!</h4>
+              <h4 class="card-title">Add a Charming Meme!</h4>
               <div class="card-img">
                 <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
                   <g id="Path_8" data-name="Path 8" fill="#ff7876">
@@ -163,10 +163,10 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 text-center">
+        <div class="col-md-6 text-center customize-button customize-spotify-button">
           <div class="card package-item w-50">
             <div class="card-body">
-              <h4 class="card-title">Add a Postmates delivery!</h4>
+              <h4 class="card-title">Add a Spotify song!</h4>
               <div class="card-img">
                 <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
                   <g id="Path_8" data-name="Path 8" fill="#ffdb77">
@@ -186,22 +186,106 @@
           </div>
         </div>
       </div>
+      <div class="row mb-5">
+        <div class="col text-center">
+          <button class="btn btn-primary preview-button">Preview what they'll see!</button>
+        </div>
+      </div>
     </div>
   </section>
   <section class="message-form">
-    Message Form
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col text-center">
+          <h2>Message Form</h2>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col text-center">
+          <button class="btn btn-secondary cancel-message-button">Cancel changes!</button>
+        </div>
+        <div class="col text-center">
+          <button class="btn btn-primary use-message-button">Use this Message!</button>
+        </div>
+      </div>
+    </div>
   </section>
   <section class="meme-form">
-    Meme Form
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col text-center">
+          <h2>Meme Form</h2>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col text-center">
+          <button class="btn btn-secondary cancel-meme-button">Cancel changes!</button>
+        </div>
+        <div class="col text-center">
+          <button class="btn btn-primary use-meme-button">Use this Meme!</button>
+        </div>
+      </div>
+    </div>
   </section>
   <section class="postmates-form">
-    Postmates Form
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col text-center">
+          <h2>Postmates Form</h2>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col text-center">
+          <button class="btn btn-secondary cancel-postmates-button">Cancel changes!</button>
+        </div>
+        <div class="col text-center">
+          <button class="btn btn-primary use-postmates-button">Use this Delivery!</button>
+        </div>
+      </div>
+    </div>
   </section>
   <section class="spotify-form">
-    Spotify Form
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col text-center">
+          <h2>Spotify Form</h2>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col text-center">
+          <button class="btn btn-secondary cancel-spotify-button">Cancel changes!</button>
+        </div>
+        <div class="col text-center">
+          <button class="btn btn-primary use-spotify-button">Use this Spotify song!</button>
+        </div>
+      </div>
+    </div>
   </section>
   <section class="preview-screen">
-    Preview Screen
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col text-center">
+          <h2>Preview</h2>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col text-center">
+          <button class="btn btn-secondary cancel-preview-button">Go back and make changes!</button>
+        </div>
+        <div class="col text-center">
+          <button class="btn btn-primary use-preview-button">Send your care package!</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="package-sent">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col text-center">
+          <h2>Package Sent!</h2>
+        </div>
+      </div>
+    </div>
   </section>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -214,8 +298,10 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
+  <!-- App-Specific JavaScript files. The order is important!!! -->
   <script src="./assets/js/imports/database.js"></script>
   <script src="./assets/js/imports/state-machine.js"></script>
+  <script src="./assets/js/settings/ui-settings.js"></script>
   <script src="./assets/js/imports/ui.js"></script>
   <script src="./assets/js/states/landing-screen.js"></script>
   <script src="./assets/js/states/about-screen.js"></script>
@@ -225,8 +311,8 @@
   <script src="./assets/js/states/customize-postmates-screen.js"></script>
   <script src="./assets/js/states/customize-spotify-screen.js"></script>
   <script src="./assets/js/states/preview-screen.js"></script>
+  <script src="./assets/js/states/package-sent-screen.js"></script>
   <script src="./assets/js/settings/database-settings.js"></script>
-  <script src="./assets/js/settings/ui-settings.js"></script>
   <script src="./assets/js/settings/app-settings.js"></script>
   <script src="./assets/js/app.js"></script>
 </body>
