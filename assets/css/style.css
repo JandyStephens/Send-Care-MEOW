@@ -38,6 +38,12 @@ section{
     margin-top: 5rem;
 }
 
+.gif-results{
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    display: none;
+}
+
 @keyframes fade_move_down {
     0% {
           transform: translate(0, -20px);

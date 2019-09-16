@@ -88,100 +88,90 @@
   </section>
   <section id="create-package-screen">
     <div class="container">
-        <form>
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Your friend's email</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-          </form>
-      <div class="row mt-5">
-        <div class="col-md-6 text-center customize-button customize-message-button">
-          <div class="card package-item w-50">
-            <div class="card-body">
-              <h4 class="card-title">Add a Personal Message!</h4>
-              <div class="card-img">
-                <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
-                  <g id="Path_8" data-name="Path 8" fill="#ff7876">
-                    <path
-                      d="M 156 119.5 L 4 119.5 C 2.070100069046021 119.5 0.5 117.9299011230469 0.5 116 L 0.5 4 C 0.5 2.070100069046021 2.070100069046021 0.5 4 0.5 L 156 0.5 C 157.9299011230469 0.5 159.5 2.070100069046021 159.5 4 L 159.5 116 C 159.5 117.9299011230469 157.9299011230469 119.5 156 119.5 Z"
-                      stroke="none" />
-                    <path
-                      d="M 4 1 C 2.345794677734375 1 1 2.345794677734375 1 4 L 1 116 C 1 117.6542053222656 2.345794677734375 119 4 119 L 156 119 C 157.6542053222656 119 159 117.6542053222656 159 116 L 159 4 C 159 2.345794677734375 157.6542053222656 1 156 1 L 4 1 M 4 0 L 156 0 C 158.2091217041016 0 160 1.790855407714844 160 4 L 160 116 C 160 118.2091217041016 158.2091217041016 120 156 120 L 4 120 C 1.790847778320312 120 0 118.2091217041016 0 116 L 0 4 C 0 1.790855407714844 1.790847778320312 0 4 0 Z"
-                      stroke="none" fill="#707070" />
-                  </g>
-                  <path id="mail-bulk"
-                    d="M18.074,7.746H64.551v7.746H72.3V7.746A7.746,7.746,0,0,0,64.551,0H18.074a7.746,7.746,0,0,0-7.746,7.746V30.984h7.746Zm36.148,28.4H7.746A7.746,7.746,0,0,0,0,43.894V74.879a7.746,7.746,0,0,0,7.746,7.746H54.223a7.746,7.746,0,0,0,7.746-7.746V43.894A7.746,7.746,0,0,0,54.223,36.148Zm0,38.73H7.746V55.507c2.338,1.777,12.91,9.379,12.91,9.379,2.33,1.807,6.232,4.828,10.328,4.828s8-3.021,10.328-4.828c0,0,10.57-7.6,12.91-9.379Zm0-28.823c-.382.3-18.044,13.223-18.9,13.806-1.372.941-3.082,2.108-4.343,2.108-1.519,0-3.662-1.7-5.083-2.829-.55-.439-17.772-13.3-18.155-13.6V43.894H54.223Zm30.984-25.4H38.73A7.746,7.746,0,0,0,30.984,28.4v2.582H38.73V28.4H85.207V59.387H67.133v7.746H85.207a7.746,7.746,0,0,0,7.746-7.746V28.4A7.746,7.746,0,0,0,85.207,20.656ZM69.715,33.566V43.894H80.043V33.566Z"
-                    transform="translate(33.047 18.375)" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 text-center customize-button customize-postmates-button">
-          <div class="card package-item w-50">
-            <div class="card-body">
-              <h4 class="card-title">Add a Postmates delivery!</h4>
-              <div class="card-img">
-                <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
-                  <g id="Path_8" data-name="Path 8" fill="#ffdb77">
-                    <path
-                      d="M 156 119.5 L 4 119.5 C 2.070100069046021 119.5 0.5 117.9299011230469 0.5 116 L 0.5 4 C 0.5 2.070100069046021 2.070100069046021 0.5 4 0.5 L 156 0.5 C 157.9299011230469 0.5 159.5 2.070100069046021 159.5 4 L 159.5 116 C 159.5 117.9299011230469 157.9299011230469 119.5 156 119.5 Z"
-                      stroke="none" />
-                    <path
-                      d="M 4 1 C 2.345794677734375 1 1 2.345794677734375 1 4 L 1 116 C 1 117.6542053222656 2.345794677734375 119 4 119 L 156 119 C 157.6542053222656 119 159 117.6542053222656 159 116 L 159 4 C 159 2.345794677734375 157.6542053222656 1 156 1 L 4 1 M 4 0 L 156 0 C 158.2091217041016 0 160 1.790855407714844 160 4 L 160 116 C 160 118.2091217041016 158.2091217041016 120 156 120 L 4 120 C 1.790847778320312 120 0 118.2091217041016 0 116 L 0 4 C 0 1.790855407714844 1.790847778320312 0 4 0 Z"
-                      stroke="none" fill="#707070" />
-                  </g>
-                  <path id="Path_3" data-name="Path 3"
-                    d="M115.383,46.1a15.036,15.036,0,0,0-15.135-5.954,14.854,14.854,0,0,0-5.8,2.524,14.665,14.665,0,0,0-2.18,1.919L87.83,41.131c1.271-.475,5.234-2.067,3.595-2.932a6.789,6.789,0,0,0-2.5-.478l9.57-8.353-2.7-5.252-8.889,7.972s-.008-.013-.872.778l-.018.016h-.01a23.9,23.9,0,0,0-4.639.175l0-.005a16.466,16.466,0,0,1-4.482.457c-2.918-.566-3.608-3.67-4.929-5.474-.752-1.023-2.263-1.141-2.391-2.021a5.012,5.012,0,0,0,1.162-.365,4.541,4.541,0,0,0,2.592-2.454c.553-1.232-.037-3.258-.861-4.96.666-.48,3.143-2.415,3.046-2.746a29.236,29.236,0,0,0-4.417.556,3.054,3.054,0,0,0-.522-.522c-1.057-.778-1.924-1.566-4.417-.527-4.266,1.783-4.046,5.109-2.629,8.072a5.185,5.185,0,0,0,3.036,2.671l-.188.36.117-.295c-6.735,6.075-22.455,16.3-26.627,16.509,3.43,1.337,13.3,1.519,17.433-.948-1.162,4.7-1.232,9.385.762,11.695a40.68,40.68,0,0,0-3.874,3.133c-.6.582-.418.882.1,1.566,0,0,4,.078,5.19-1.055.318-.3.6-.574.846-.83l5.56,3.9-.522,5.579a14.782,14.782,0,0,0-8.615,2.809,15,15,0,1,0,21.889,4.965l1.1-.7a3.334,3.334,0,0,0,4.889-3.6l4.824-1.462c1.819-.538,2.088-1.083,1.637-1.984-.613-1.227-5.221-.117-5.821-.783l-1.305-2.942,2.524-18.477,4.26,3.164a14.993,14.993,0,1,0,24.528-.251m-39-9.64a27.692,27.692,0,0,0,6.51-.3l.731,1.618a46.966,46.966,0,0,0-4.678.512c-1.17.193-4.208-2.814-2.566-1.833M61.738,54.625a8.249,8.249,0,0,0,1.425-.138q4.374-.417,8.714-1.117L66.8,58.2Zm13.058-1.1c-1.089,3.772-2.177,6.422-2.882,8.288l-3.341-2.362Zm-7.576,15a11.982,11.982,0,0,1,7.719,4.48L66.283,78.6Zm5.273,21.542a11.851,11.851,0,0,1-4.618,2.02,11.961,11.961,0,0,1-9.332-21.442,11.758,11.758,0,0,1,6.56-2.237L63.967,80.581a1.07,1.07,0,0,0,.506,1.008,1.044,1.044,0,0,0,.762.133.992.992,0,0,0,.365-.149L76.1,74.8a11.952,11.952,0,0,1-3.6,15.271m5.007-18.717a15.01,15.01,0,0,0-10-5.847l.4-4.294,3.4,2.4c-.373,1.365-.214,2.088.9,2.532l5.944,2.3.034.026a3.273,3.273,0,0,0,.112,2.349Zm3.775-5.221a3.341,3.341,0,0,0-1.451.392,6.4,6.4,0,0,0-1.373-1.065c-.522-.35-3.018-1.833-2.924-2.141a42.947,42.947,0,0,1,2.331-4.947,31.285,31.285,0,0,1,3.665,5.968ZM82.4,57.9,79.7,51.636a7,7,0,0,0-.191-2.621l4.7-4.5ZM78.234,47.318c-2.864-2.088-8.782-1.044-12.635-.426,1.31-2.757,3.623-5.607,4.393-8.928.418,2.094,7.309,4.474,7.309,4.474a45.912,45.912,0,0,0,5.863-1.762c.026.026.06.052.089.078l1.039.773Zm31.9,17.247a11.955,11.955,0,0,1-16.7-2.736,12.024,12.024,0,0,1-.183-13.668l9.638,7.153a.9.9,0,0,0,.653.175.94.94,0,0,0,.627-.352.914.914,0,0,0-.178-1.277l-9.366-7.38a11.329,11.329,0,0,1,1.551-1.344,11.825,11.825,0,0,1,4.621-2.018,11.964,11.964,0,0,1,9.338,21.445m-72.78-7.518-2.934-5.221-.694,5.947-5.874,1.175,5.44,2.5L32.6,67.393l4.057-4.406,5.443,2.5-2.932-5.221,4.057-4.406ZM34.728,82.236,31.8,77.015,31.1,82.961l-5.874,1.175,5.44,2.5-.694,5.952,4.057-4.406,5.443,2.5-2.932-5.221L40.6,81.072Zm-19.625-9-2.932-5.221-.7,5.952L5.6,75.146l5.443,2.5-.7,5.952,4.059-4.406,5.44,2.5-2.932-5.221,4.057-4.4ZM80.781,31.648q2.424-.109,4.85.024l9.032-8.092-3.968-.4L80.74,31.653"
-                    transform="translate(18.4 5.503)" fill="#1e252b" />
-                </svg>
-              </div>
+      <div class="customize-button customize-message-button">
+        <div class="card package-item">
+          <div class="card-body">
+            <h4 class="card-title">Add a Personal Message!</h4>
+            <div class="card-img">
+              <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
+                <g id="Path_8" data-name="Path 8" fill="#ff7876">
+                  <path
+                    d="M 156 119.5 L 4 119.5 C 2.070100069046021 119.5 0.5 117.9299011230469 0.5 116 L 0.5 4 C 0.5 2.070100069046021 2.070100069046021 0.5 4 0.5 L 156 0.5 C 157.9299011230469 0.5 159.5 2.070100069046021 159.5 4 L 159.5 116 C 159.5 117.9299011230469 157.9299011230469 119.5 156 119.5 Z"
+                    stroke="none" />
+                  <path
+                    d="M 4 1 C 2.345794677734375 1 1 2.345794677734375 1 4 L 1 116 C 1 117.6542053222656 2.345794677734375 119 4 119 L 156 119 C 157.6542053222656 119 159 117.6542053222656 159 116 L 159 4 C 159 2.345794677734375 157.6542053222656 1 156 1 L 4 1 M 4 0 L 156 0 C 158.2091217041016 0 160 1.790855407714844 160 4 L 160 116 C 160 118.2091217041016 158.2091217041016 120 156 120 L 4 120 C 1.790847778320312 120 0 118.2091217041016 0 116 L 0 4 C 0 1.790855407714844 1.790847778320312 0 4 0 Z"
+                    stroke="none" fill="#707070" />
+                </g>
+                <path id="mail-bulk"
+                  d="M18.074,7.746H64.551v7.746H72.3V7.746A7.746,7.746,0,0,0,64.551,0H18.074a7.746,7.746,0,0,0-7.746,7.746V30.984h7.746Zm36.148,28.4H7.746A7.746,7.746,0,0,0,0,43.894V74.879a7.746,7.746,0,0,0,7.746,7.746H54.223a7.746,7.746,0,0,0,7.746-7.746V43.894A7.746,7.746,0,0,0,54.223,36.148Zm0,38.73H7.746V55.507c2.338,1.777,12.91,9.379,12.91,9.379,2.33,1.807,6.232,4.828,10.328,4.828s8-3.021,10.328-4.828c0,0,10.57-7.6,12.91-9.379Zm0-28.823c-.382.3-18.044,13.223-18.9,13.806-1.372.941-3.082,2.108-4.343,2.108-1.519,0-3.662-1.7-5.083-2.829-.55-.439-17.772-13.3-18.155-13.6V43.894H54.223Zm30.984-25.4H38.73A7.746,7.746,0,0,0,30.984,28.4v2.582H38.73V28.4H85.207V59.387H67.133v7.746H85.207a7.746,7.746,0,0,0,7.746-7.746V28.4A7.746,7.746,0,0,0,85.207,20.656ZM69.715,33.566V43.894H80.043V33.566Z"
+                  transform="translate(33.047 18.375)" />
+              </svg>
             </div>
           </div>
         </div>
       </div>
-      <div class="row mt-5">
-        <div class="col-md-6 text-center customize-button customize-meme-button">
-          <div class="card package-item w-50">
-            <div class="card-body">
-              <h4 class="card-title">Add a Charming Meme!</h4>
-              <div class="card-img">
-                <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
-                  <g id="Path_8" data-name="Path 8" fill="#ff7876">
-                    <path
-                      d="M 156 119.5 L 4 119.5 C 2.070100069046021 119.5 0.5 117.9299011230469 0.5 116 L 0.5 4 C 0.5 2.070100069046021 2.070100069046021 0.5 4 0.5 L 156 0.5 C 157.9299011230469 0.5 159.5 2.070100069046021 159.5 4 L 159.5 116 C 159.5 117.9299011230469 157.9299011230469 119.5 156 119.5 Z"
-                      stroke="none" />
-                    <path
-                      d="M 4 1 C 2.345794677734375 1 1 2.345794677734375 1 4 L 1 116 C 1 117.6542053222656 2.345794677734375 119 4 119 L 156 119 C 157.6542053222656 119 159 117.6542053222656 159 116 L 159 4 C 159 2.345794677734375 157.6542053222656 1 156 1 L 4 1 M 4 0 L 156 0 C 158.2091217041016 0 160 1.790855407714844 160 4 L 160 116 C 160 118.2091217041016 158.2091217041016 120 156 120 L 4 120 C 1.790847778320312 120 0 118.2091217041016 0 116 L 0 4 C 0 1.790855407714844 1.790847778320312 0 4 0 Z"
-                      stroke="none" fill="#707070" />
-                  </g>
-                  <path id="mail-bulk"
-                    d="M18.074,7.746H64.551v7.746H72.3V7.746A7.746,7.746,0,0,0,64.551,0H18.074a7.746,7.746,0,0,0-7.746,7.746V30.984h7.746Zm36.148,28.4H7.746A7.746,7.746,0,0,0,0,43.894V74.879a7.746,7.746,0,0,0,7.746,7.746H54.223a7.746,7.746,0,0,0,7.746-7.746V43.894A7.746,7.746,0,0,0,54.223,36.148Zm0,38.73H7.746V55.507c2.338,1.777,12.91,9.379,12.91,9.379,2.33,1.807,6.232,4.828,10.328,4.828s8-3.021,10.328-4.828c0,0,10.57-7.6,12.91-9.379Zm0-28.823c-.382.3-18.044,13.223-18.9,13.806-1.372.941-3.082,2.108-4.343,2.108-1.519,0-3.662-1.7-5.083-2.829-.55-.439-17.772-13.3-18.155-13.6V43.894H54.223Zm30.984-25.4H38.73A7.746,7.746,0,0,0,30.984,28.4v2.582H38.73V28.4H85.207V59.387H67.133v7.746H85.207a7.746,7.746,0,0,0,7.746-7.746V28.4A7.746,7.746,0,0,0,85.207,20.656ZM69.715,33.566V43.894H80.043V33.566Z"
-                    transform="translate(33.047 18.375)" />
-                </svg>
-              </div>
+      <div class="customize-button customize-postmates-button">
+        <div class="card package-item">
+          <div class="card-body">
+            <h4 class="card-title">Add a Postmates delivery!</h4>
+            <div class="card-img">
+              <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
+                <g id="Path_8" data-name="Path 8" fill="#ffdb77">
+                  <path
+                    d="M 156 119.5 L 4 119.5 C 2.070100069046021 119.5 0.5 117.9299011230469 0.5 116 L 0.5 4 C 0.5 2.070100069046021 2.070100069046021 0.5 4 0.5 L 156 0.5 C 157.9299011230469 0.5 159.5 2.070100069046021 159.5 4 L 159.5 116 C 159.5 117.9299011230469 157.9299011230469 119.5 156 119.5 Z"
+                    stroke="none" />
+                  <path
+                    d="M 4 1 C 2.345794677734375 1 1 2.345794677734375 1 4 L 1 116 C 1 117.6542053222656 2.345794677734375 119 4 119 L 156 119 C 157.6542053222656 119 159 117.6542053222656 159 116 L 159 4 C 159 2.345794677734375 157.6542053222656 1 156 1 L 4 1 M 4 0 L 156 0 C 158.2091217041016 0 160 1.790855407714844 160 4 L 160 116 C 160 118.2091217041016 158.2091217041016 120 156 120 L 4 120 C 1.790847778320312 120 0 118.2091217041016 0 116 L 0 4 C 0 1.790855407714844 1.790847778320312 0 4 0 Z"
+                    stroke="none" fill="#707070" />
+                </g>
+                <path id="Path_3" data-name="Path 3"
+                  d="M115.383,46.1a15.036,15.036,0,0,0-15.135-5.954,14.854,14.854,0,0,0-5.8,2.524,14.665,14.665,0,0,0-2.18,1.919L87.83,41.131c1.271-.475,5.234-2.067,3.595-2.932a6.789,6.789,0,0,0-2.5-.478l9.57-8.353-2.7-5.252-8.889,7.972s-.008-.013-.872.778l-.018.016h-.01a23.9,23.9,0,0,0-4.639.175l0-.005a16.466,16.466,0,0,1-4.482.457c-2.918-.566-3.608-3.67-4.929-5.474-.752-1.023-2.263-1.141-2.391-2.021a5.012,5.012,0,0,0,1.162-.365,4.541,4.541,0,0,0,2.592-2.454c.553-1.232-.037-3.258-.861-4.96.666-.48,3.143-2.415,3.046-2.746a29.236,29.236,0,0,0-4.417.556,3.054,3.054,0,0,0-.522-.522c-1.057-.778-1.924-1.566-4.417-.527-4.266,1.783-4.046,5.109-2.629,8.072a5.185,5.185,0,0,0,3.036,2.671l-.188.36.117-.295c-6.735,6.075-22.455,16.3-26.627,16.509,3.43,1.337,13.3,1.519,17.433-.948-1.162,4.7-1.232,9.385.762,11.695a40.68,40.68,0,0,0-3.874,3.133c-.6.582-.418.882.1,1.566,0,0,4,.078,5.19-1.055.318-.3.6-.574.846-.83l5.56,3.9-.522,5.579a14.782,14.782,0,0,0-8.615,2.809,15,15,0,1,0,21.889,4.965l1.1-.7a3.334,3.334,0,0,0,4.889-3.6l4.824-1.462c1.819-.538,2.088-1.083,1.637-1.984-.613-1.227-5.221-.117-5.821-.783l-1.305-2.942,2.524-18.477,4.26,3.164a14.993,14.993,0,1,0,24.528-.251m-39-9.64a27.692,27.692,0,0,0,6.51-.3l.731,1.618a46.966,46.966,0,0,0-4.678.512c-1.17.193-4.208-2.814-2.566-1.833M61.738,54.625a8.249,8.249,0,0,0,1.425-.138q4.374-.417,8.714-1.117L66.8,58.2Zm13.058-1.1c-1.089,3.772-2.177,6.422-2.882,8.288l-3.341-2.362Zm-7.576,15a11.982,11.982,0,0,1,7.719,4.48L66.283,78.6Zm5.273,21.542a11.851,11.851,0,0,1-4.618,2.02,11.961,11.961,0,0,1-9.332-21.442,11.758,11.758,0,0,1,6.56-2.237L63.967,80.581a1.07,1.07,0,0,0,.506,1.008,1.044,1.044,0,0,0,.762.133.992.992,0,0,0,.365-.149L76.1,74.8a11.952,11.952,0,0,1-3.6,15.271m5.007-18.717a15.01,15.01,0,0,0-10-5.847l.4-4.294,3.4,2.4c-.373,1.365-.214,2.088.9,2.532l5.944,2.3.034.026a3.273,3.273,0,0,0,.112,2.349Zm3.775-5.221a3.341,3.341,0,0,0-1.451.392,6.4,6.4,0,0,0-1.373-1.065c-.522-.35-3.018-1.833-2.924-2.141a42.947,42.947,0,0,1,2.331-4.947,31.285,31.285,0,0,1,3.665,5.968ZM82.4,57.9,79.7,51.636a7,7,0,0,0-.191-2.621l4.7-4.5ZM78.234,47.318c-2.864-2.088-8.782-1.044-12.635-.426,1.31-2.757,3.623-5.607,4.393-8.928.418,2.094,7.309,4.474,7.309,4.474a45.912,45.912,0,0,0,5.863-1.762c.026.026.06.052.089.078l1.039.773Zm31.9,17.247a11.955,11.955,0,0,1-16.7-2.736,12.024,12.024,0,0,1-.183-13.668l9.638,7.153a.9.9,0,0,0,.653.175.94.94,0,0,0,.627-.352.914.914,0,0,0-.178-1.277l-9.366-7.38a11.329,11.329,0,0,1,1.551-1.344,11.825,11.825,0,0,1,4.621-2.018,11.964,11.964,0,0,1,9.338,21.445m-72.78-7.518-2.934-5.221-.694,5.947-5.874,1.175,5.44,2.5L32.6,67.393l4.057-4.406,5.443,2.5-2.932-5.221,4.057-4.406ZM34.728,82.236,31.8,77.015,31.1,82.961l-5.874,1.175,5.44,2.5-.694,5.952,4.057-4.406,5.443,2.5-2.932-5.221L40.6,81.072Zm-19.625-9-2.932-5.221-.7,5.952L5.6,75.146l5.443,2.5-.7,5.952,4.059-4.406,5.44,2.5-2.932-5.221,4.057-4.4ZM80.781,31.648q2.424-.109,4.85.024l9.032-8.092-3.968-.4L80.74,31.653"
+                  transform="translate(18.4 5.503)" fill="#1e252b" />
+              </svg>
             </div>
           </div>
         </div>
-        <div class="col-md-6 text-center customize-button customize-spotify-button">
-          <div class="card package-item w-50">
-            <div class="card-body">
-              <h4 class="card-title">Add a Spotify song!</h4>
-              <div class="card-img">
-                <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
-                  <g id="Path_8" data-name="Path 8" fill="#454545">
-                    <path
-                      d="M 156 119.5 L 4 119.5 C 2.070100069046021 119.5 0.5 117.9299011230469 0.5 116 L 0.5 4 C 0.5 2.070100069046021 2.070100069046021 0.5 4 0.5 L 156 0.5 C 157.9299011230469 0.5 159.5 2.070100069046021 159.5 4 L 159.5 116 C 159.5 117.9299011230469 157.9299011230469 119.5 156 119.5 Z"
-                      stroke="none" />
-                    <path
-                      d="M 4 1 C 2.345794677734375 1 1 2.345794677734375 1 4 L 1 116 C 1 117.6542053222656 2.345794677734375 119 4 119 L 156 119 C 157.6542053222656 119 159 117.6542053222656 159 116 L 159 4 C 159 2.345794677734375 157.6542053222656 1 156 1 L 4 1 M 4 0 L 156 0 C 158.2091217041016 0 160 1.790855407714844 160 4 L 160 116 C 160 118.2091217041016 158.2091217041016 120 156 120 L 4 120 C 1.790847778320312 120 0 118.2091217041016 0 116 L 0 4 C 0 1.790855407714844 1.790847778320312 0 4 0 Z"
-                      stroke="none" fill="#707070" />
-                  </g>
-                  <path id="spotify"
-                    d="M36.5,8A36.5,36.5,0,1,0,73,44.5,36.513,36.513,0,0,0,36.5,8ZM51.321,61.705a2.808,2.808,0,0,1-1.575-.53c-9.184-5.534-19.869-5.769-30.422-3.606a9.5,9.5,0,0,1-1.751.383,2.291,2.291,0,0,1-2.325-2.325,2.332,2.332,0,0,1,2-2.473C29.3,50.49,41.622,50.726,52.13,57.01a2.489,2.489,0,0,1,1.428,2.428,2.224,2.224,0,0,1-2.237,2.267ZM55.28,52.05a3.634,3.634,0,0,1-1.81-.618c-9.2-5.446-22.916-7.639-35.117-4.327a6.061,6.061,0,0,1-1.751.383,2.858,2.858,0,0,1-2.855-2.855,2.9,2.9,0,0,1,2.281-3.047,49.5,49.5,0,0,1,14.394-2,51.52,51.52,0,0,1,26.05,6.7,3.068,3.068,0,0,1,1.663,2.9A2.852,2.852,0,0,1,55.28,52.05Zm4.562-11.215a3.385,3.385,0,0,1-1.9-.574C47.465,34.006,28.729,32.505,16.6,35.89a6.991,6.991,0,0,1-1.9.383A3.4,3.4,0,0,1,11.274,32.8a3.477,3.477,0,0,1,2.561-3.518,61.684,61.684,0,0,1,17.293-2.237c10.744,0,22,2.237,30.23,7.035a3.455,3.455,0,0,1,1.9,3.326A3.41,3.41,0,0,1,59.842,40.835Z"
-                    transform="translate(44 16)" fill="#00b707" />
-                </svg>
-              </div>
+      </div>
+      <div class="customize-button customize-meme-button">
+        <div class="card package-item">
+          <div class="card-body">
+            <h4 class="card-title">Add a Charming Meme!</h4>
+            <div class="card-img">
+              <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
+                <g id="Path_8" data-name="Path 8" fill="#ff7876">
+                  <path
+                    d="M 156 119.5 L 4 119.5 C 2.070100069046021 119.5 0.5 117.9299011230469 0.5 116 L 0.5 4 C 0.5 2.070100069046021 2.070100069046021 0.5 4 0.5 L 156 0.5 C 157.9299011230469 0.5 159.5 2.070100069046021 159.5 4 L 159.5 116 C 159.5 117.9299011230469 157.9299011230469 119.5 156 119.5 Z"
+                    stroke="none" />
+                  <path
+                    d="M 4 1 C 2.345794677734375 1 1 2.345794677734375 1 4 L 1 116 C 1 117.6542053222656 2.345794677734375 119 4 119 L 156 119 C 157.6542053222656 119 159 117.6542053222656 159 116 L 159 4 C 159 2.345794677734375 157.6542053222656 1 156 1 L 4 1 M 4 0 L 156 0 C 158.2091217041016 0 160 1.790855407714844 160 4 L 160 116 C 160 118.2091217041016 158.2091217041016 120 156 120 L 4 120 C 1.790847778320312 120 0 118.2091217041016 0 116 L 0 4 C 0 1.790855407714844 1.790847778320312 0 4 0 Z"
+                    stroke="none" fill="#707070" />
+                </g>
+                <path id="mail-bulk"
+                  d="M18.074,7.746H64.551v7.746H72.3V7.746A7.746,7.746,0,0,0,64.551,0H18.074a7.746,7.746,0,0,0-7.746,7.746V30.984h7.746Zm36.148,28.4H7.746A7.746,7.746,0,0,0,0,43.894V74.879a7.746,7.746,0,0,0,7.746,7.746H54.223a7.746,7.746,0,0,0,7.746-7.746V43.894A7.746,7.746,0,0,0,54.223,36.148Zm0,38.73H7.746V55.507c2.338,1.777,12.91,9.379,12.91,9.379,2.33,1.807,6.232,4.828,10.328,4.828s8-3.021,10.328-4.828c0,0,10.57-7.6,12.91-9.379Zm0-28.823c-.382.3-18.044,13.223-18.9,13.806-1.372.941-3.082,2.108-4.343,2.108-1.519,0-3.662-1.7-5.083-2.829-.55-.439-17.772-13.3-18.155-13.6V43.894H54.223Zm30.984-25.4H38.73A7.746,7.746,0,0,0,30.984,28.4v2.582H38.73V28.4H85.207V59.387H67.133v7.746H85.207a7.746,7.746,0,0,0,7.746-7.746V28.4A7.746,7.746,0,0,0,85.207,20.656ZM69.715,33.566V43.894H80.043V33.566Z"
+                  transform="translate(33.047 18.375)" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="customize-button customize-spotify-button">
+        <div class="card package-item">
+          <div class="card-body">
+            <h4 class="card-title">Add a Spotify song!</h4>
+            <div class="card-img">
+              <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
+                <g id="Path_8" data-name="Path 8" fill="#454545">
+                  <path
+                    d="M 156 119.5 L 4 119.5 C 2.070100069046021 119.5 0.5 117.9299011230469 0.5 116 L 0.5 4 C 0.5 2.070100069046021 2.070100069046021 0.5 4 0.5 L 156 0.5 C 157.9299011230469 0.5 159.5 2.070100069046021 159.5 4 L 159.5 116 C 159.5 117.9299011230469 157.9299011230469 119.5 156 119.5 Z"
+                    stroke="none" />
+                  <path
+                    d="M 4 1 C 2.345794677734375 1 1 2.345794677734375 1 4 L 1 116 C 1 117.6542053222656 2.345794677734375 119 4 119 L 156 119 C 157.6542053222656 119 159 117.6542053222656 159 116 L 159 4 C 159 2.345794677734375 157.6542053222656 1 156 1 L 4 1 M 4 0 L 156 0 C 158.2091217041016 0 160 1.790855407714844 160 4 L 160 116 C 160 118.2091217041016 158.2091217041016 120 156 120 L 4 120 C 1.790847778320312 120 0 118.2091217041016 0 116 L 0 4 C 0 1.790855407714844 1.790847778320312 0 4 0 Z"
+                    stroke="none" fill="#707070" />
+                </g>
+                <path id="spotify"
+                  d="M36.5,8A36.5,36.5,0,1,0,73,44.5,36.513,36.513,0,0,0,36.5,8ZM51.321,61.705a2.808,2.808,0,0,1-1.575-.53c-9.184-5.534-19.869-5.769-30.422-3.606a9.5,9.5,0,0,1-1.751.383,2.291,2.291,0,0,1-2.325-2.325,2.332,2.332,0,0,1,2-2.473C29.3,50.49,41.622,50.726,52.13,57.01a2.489,2.489,0,0,1,1.428,2.428,2.224,2.224,0,0,1-2.237,2.267ZM55.28,52.05a3.634,3.634,0,0,1-1.81-.618c-9.2-5.446-22.916-7.639-35.117-4.327a6.061,6.061,0,0,1-1.751.383,2.858,2.858,0,0,1-2.855-2.855,2.9,2.9,0,0,1,2.281-3.047,49.5,49.5,0,0,1,14.394-2,51.52,51.52,0,0,1,26.05,6.7,3.068,3.068,0,0,1,1.663,2.9A2.852,2.852,0,0,1,55.28,52.05Zm4.562-11.215a3.385,3.385,0,0,1-1.9-.574C47.465,34.006,28.729,32.505,16.6,35.89a6.991,6.991,0,0,1-1.9.383A3.4,3.4,0,0,1,11.274,32.8a3.477,3.477,0,0,1,2.561-3.518,61.684,61.684,0,0,1,17.293-2.237c10.744,0,22,2.237,30.23,7.035a3.455,3.455,0,0,1,1.9,3.326A3.41,3.41,0,0,1,59.842,40.835Z"
+                  transform="translate(44 16)" fill="#00b707" />
+              </svg>
             </div>
           </div>
         </div>
@@ -223,12 +213,19 @@
     <div class="container">
       <div class="row mb-5">
         <div class="col text-center">
+          <h3>Search for a funny GIF!</h3>
           <form>
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Email address</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" placeholder="Cat and laser pointer">
             </div>
           </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="gif-results mb-5">
+
+          </div>
         </div>
       </div>
       <div class="row mb-5">
@@ -243,9 +240,204 @@
   </section>
   <section id="customize-postmates-screen">
     <div class="container">
-      <div class="row mb-5">
-        <div class="col text-center">
-          <h2>Postmates Form</h2>
+      <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Your cart</span>
+            <span class="badge badge-secondary badge-pill">3</span>
+          </h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Product name</h6>
+                <small class="text-muted">Brief description</small>
+              </div>
+              <span class="text-muted">$12</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Second product</h6>
+                <small class="text-muted">Brief description</small>
+              </div>
+              <span class="text-muted">$8</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Third item</h6>
+                <small class="text-muted">Brief description</small>
+              </div>
+              <span class="text-muted">$5</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between bg-light">
+              <div class="text-success">
+                <h6 class="my-0">Promo code</h6>
+                <small>EXAMPLECODE</small>
+              </div>
+              <span class="text-success">-$5</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total (USD)</span>
+              <strong>$20</strong>
+            </li>
+          </ul>
+
+          <form class="card p-2">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Promo code">
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-secondary">Redeem</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Billing address</h4>
+          <form class="needs-validation" novalidate="">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                <div class="invalid-feedback">
+                  Valid last name is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="username">Username</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">@</span>
+                </div>
+                <input type="text" class="form-control" id="username" placeholder="Username" required="">
+                <div class="invalid-feedback" style="width: 100%;">
+                  Your username is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email">Email <span class="text-muted">(Optional)</span></label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+            </div>
+
+            <div class="row">
+              <div class="col-md-5 mb-3">
+                <label for="country">Country</label>
+                <select class="custom-select d-block w-100" id="country" required="">
+                  <option value="">Choose...</option>
+                  <option>United States</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="state">State</label>
+                <select class="custom-select d-block w-100" id="state" required="">
+                  <option value="">Choose...</option>
+                  <option>California</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control" id="zip" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Zip code required.
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="same-address">
+              <label class="custom-control-label" for="same-address">Shipping address is the same as my billing
+                address</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="save-info">
+              <label class="custom-control-label" for="save-info">Save this information for next time</label>
+            </div>
+            <hr class="mb-4">
+
+            <h4 class="mb-3">Payment</h4>
+
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked=""
+                  required="">
+                <label class="custom-control-label" for="credit">Credit card</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                <label class="custom-control-label" for="debit">Debit card</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                <label class="custom-control-label" for="paypal">PayPal</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="cc-name">Name on card</label>
+                <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                <small class="text-muted">Full name as displayed on card</small>
+                <div class="invalid-feedback">
+                  Name on card is required
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="cc-number">Credit card number</label>
+                <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Credit card number is required
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="cc-expiration">Expiration</label>
+                <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Expiration date required
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="cc-cvv">CVV</label>
+                <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Security code required
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+          </form>
         </div>
       </div>
       <div class="row mb-5">
