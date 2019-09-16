@@ -1,5 +1,12 @@
 body{
     font-family: 'Europa', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+section{
+    width: 100%;
+    top: 0px;
 }
 
 .landing{
@@ -29,6 +36,12 @@ body{
 
 .care-package-form{
     margin-top: 5rem;
+}
+
+.gif-results{
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    display: none;
 }
 
 @keyframes fade_move_down {
