@@ -23,14 +23,14 @@ var landingScreenState = {
                 console.log('done hiding landing screen');
 
                 // Now that we're done hiding the landing screen, switch to the about screen
-                sm.switchState('about-screen');
+                sm.switchState('create-package-screen');
             });
         });
     },
 };
 
 // Add references to jQuery selections of HTML elements that are permanently on the page
-ui.add$ToRef('landing-screen', '.landing');
+ui.add$ToRef('landing-screen', '#landing');
 ui.add$ToRef('landing-start-button', '.landing-start-button');
 
 // Add our new state to the state machine
