@@ -9,6 +9,22 @@ section{
     top: 0px;
 }
 
+#customize-spotify-screen{
+    margin-bottom: 120px;
+}
+
+.spotify-player-container{
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
+
+.spotify-player{
+    display: block;
+    margin: 0px auto;
+}
+
 .landing{
     height: 100vh;
 }
