@@ -23,7 +23,7 @@ var customizeMemeScreenState = {
 
         // START: Code to run before this screen starts transitioning in
         // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
-
+        
         //   >>> Replace this line with any code that may make sense here <<<
 
         // END: Code to run before this screen starts transitioning in
@@ -34,8 +34,12 @@ var customizeMemeScreenState = {
 
             // START: Code to run once the screen is fully transitioned in
             // I'd suggest putting any changes here you want to activate once the screen is done transitioning in.
-
+            
             //   >>> Replace this line with any code that may make sense here <<<
+                $(".form-control mr-sm-2").on("click", function({
+                    
+                }))
+
 
             // END: Code to run once the screen is fully transitioned in
 
