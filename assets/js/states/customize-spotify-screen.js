@@ -35,7 +35,7 @@ var customizeSpotifyScreenState = {
             customizeSpotifyScreenState.savedPlaylistID = customizeSpotifyScreenState.playlistID;
 
             // Disable the relevant button
-            ui.get$FromRef('select-playlist-buttons').filter(`attr[data="${customizeSpotifyScreenState.playlistID}"]`).attr('disabled', true);
+            ui.get$FromRef('select-playlist-buttons').filter(`button[data-playlist-id="${customizeSpotifyScreenState.playlistID}"]`).attr('disabled', true);
         }
 
         // END: Code to run before this screen starts transitioning in
@@ -106,13 +106,13 @@ var customizeSpotifyScreenState = {
                 if (customizeSpotifyScreenState.savedPlaylistID !== '') {
 
                     // Update our playlist ID
-                    customizeSpotifyScreenState.playlistID = customizeSpotifyScreenState.playlistID;
+                    customizeSpotifyScreenState.playlistID = customizeSpotifyScreenState.savedPlaylistID;
 
                     // Enable any disabled button that exists
                     ui.get$FromRef('select-playlist-buttons').filter(':disabled').attr('disabled', false);
 
                     // Now disable our saved playlist button
-                    ui.get$FromRef('select-playlist-buttons').filter(`attr[data="${customizeSpotifyScreenState.playlistID}"]`).attr('disabled', true);
+                    ui.get$FromRef('select-playlist-buttons').filter(`button[data-playlist-id="${customizeSpotifyScreenState.playlistID}"]`).attr('disabled', true);
                 }
 
                 // Detach the click handlers from the playlist selection buttons
