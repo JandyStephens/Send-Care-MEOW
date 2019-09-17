@@ -100,7 +100,7 @@ var customizeSpotifyScreenState = {
                 console.log('handling click on the cancel button');
 
                 // START: Code to run immediately upon clicking the cancel button
-                // I'd suggest  clearing the form or resetting it to saved data here.
+                // I'd suggest clearing the form or resetting it to saved data here.
 
                 // Check if we have a playlistID saved
                 if (customizeSpotifyScreenState.savedPlaylistID !== '') {
