@@ -11,7 +11,8 @@ var previewScreenState = {
 
         // START: General code to run after this screen finishes transitioning out and immediately before the state switches
 
-        //   >>> Replace this line with any code that may make sense here <<<
+        // Destroy the spotify player
+        ui.get$FromRef('spotify-player-container').empty();
 
         // END: General code to run after this screen finishes transitioning out and immediately before the state switches
     },
@@ -23,7 +24,12 @@ var previewScreenState = {
         // START: Code to run before this screen starts transitioning in
         // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
 
-        //   >>> Replace this line with any code that may make sense here <<<
+        // If we have a spotify playlist set
+        if (database.exists('spotify-playlist')) {
+
+            var playlistID = database.loadObject('spotify-playlist').playlistID;
+            ui.get$FromRef('spotify-player-container').html(`<iframe class="spotify-player" src="https://open.spotify.com/embed/playlist/${playlistID}" width="600" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+        }
 
         // END: Code to run before this screen starts transitioning in
 
@@ -80,6 +86,9 @@ var previewScreenState = {
 
 // Add references to jQuery selections of HTML elements that are permanently on the page
 ui.add$ToRef('preview-screen', '#preview-screen');
+
+ui.add$ToRef('spotify-player-container', '.spotify-player-container');
+
 ui.add$ToRef('cancel-preview-button', '.cancel-preview-button');
 ui.add$ToRef('use-preview-button', '.use-preview-button');
 

@@ -21,7 +21,8 @@ var database = (function(){
             //#region Error Checking
 
             // If the parameter is not the data type we expect
-            if (typeof saveName !== 'string' && (typeof objectToSave !== 'object' || objectToSave === null)) {
+            if (typeof saveName !== 'string'
+                || (typeof objectToSave !== 'object' || objectToSave === null)) {
 
                 throw new TypeError('This method needs the following types for its parameters: saveObject(String, Object)');
             }
@@ -59,6 +60,13 @@ var database = (function(){
 
             // Convert the stored string record back into an object and return it
             return JSON.parse(window.localStorage.getItem(saveName));
+        },
+
+        // Use this method to test if an object exists in the database
+        exists: function (saveName) {
+
+            // Return if an object by that name exists in the database
+            return (window.localStorage.getItem(saveName) !== null);
         },
     };
 

@@ -64,7 +64,7 @@ var customizePostmatesScreenState = {
                 console.log('handling click on the cancel button');
 
                 // START: Code to run immediately upon clicking the cancel button
-                // I'd suggest either clearing the form or resetting it to saved data here or right before the transition back to the create package state. Depends on if you want the user to see the cancellation or not.
+                // I'd suggest clearing the form or resetting it to saved data here.
 
                 //   >>> Replace this line with any code that may make sense here <<<
 
