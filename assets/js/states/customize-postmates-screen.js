@@ -1,3 +1,6 @@
+var manifestItems = [];
+var postmatesResponse;
+
 var customizePostmatesScreenState = {
 
     unloadState: function (nextState) {
@@ -39,20 +42,26 @@ var customizePostmatesScreenState = {
 
             // END: Code to run once the screen is fully transitioned in
             ui.get$FromRef('add-to-cart').on('click', function () {
+                // Create new HTML nodes for cart list when an item is searched
                 let newItem = $("<li>");
                 let title = $("<h6>");
                 let span = $("<span>");
+                let searchTerm = $("#menu-item-input").val();
 
                 newItem.addClass("list-group-item d-flex justify-content-between lh-condensed");
                 span.addClass("text-muted");
                 title.addClass("my-0");
 
-                span.text("$" + Math.floor(Math.random() * 15));
-                title.text($("#menu-item-input").val());
+                manifestItems.push(searchTerm);
+                span.text("$" + Math.ceil(Math.random() * 15));
+                title.text(searchTerm);
                 newItem.append(title);
                 newItem.append(span);
+                
                 $(".cart-sub-group").append(newItem);
-                console.log('added cart item');
+                console.log(manifestItems);
+
+                
             });
             // Attach a click event handler to the use button (done here so its not clickable until fully on screen)
             ui.get$FromRef('use-postmates-button').on('click', function () {
@@ -62,7 +71,7 @@ var customizePostmatesScreenState = {
                 // I'd suggest putting any validation code here; so we can 'return' the function before the transitioning-out code runs.
                 // I'd also suggest saving the form data for usage later using 'database.saveObject(saveName, objectToSave)' once the form has been validated.
 
-                //   >>> Replace this line with any code that may make sense here <<<
+                
 
                 // END: Code to run immediately upon clicking the use button
 
