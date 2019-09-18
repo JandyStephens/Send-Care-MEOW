@@ -1,3 +1,4 @@
+const localSelection = [];
 var customizeMemeScreenState = {
   unloadState: function(nextState) {
     // Start hiding the customization screen
@@ -46,13 +47,13 @@ var customizeMemeScreenState = {
           return `https://api.giphy.com/v1/gifs/search?api_key=8Exgf9tU7mNJScplIIgNLTVYWdbiaWcL&rating=PG-13&q=${memeInput}&limit=3`;
         };
 
-        console.log(
-          memeQueryURL(
-            $(".meme-input")
-              .val()
-              .trim()
-          )
-        );
+        // console.log(
+        //   memeQueryURL(
+        //     $(".meme-input")
+        //       .val()
+        //       .trim()
+        //   )
+        // );
 
         $.ajax({
           url: memeQueryURL(
@@ -62,20 +63,23 @@ var customizeMemeScreenState = {
           ),
           method: "GET"
         }).then(function(response) {
-          console.log("meme response:", response.data);
+          //   console.log("meme response:", response.data);
 
           for (let i = 0; i < response.data.length; i++) {
-            console.log(response.data[i].images.original_still.url);
+            console.log(response.data[i].images.original.url);
             var gifImg = $("<img>");
             gifImg
               .attr("class", "gif-images")
-              .attr("src", response.data[i].images.original_still.url)
+              .attr("src", response.data[i].images.original.url)
               .attr("alt", "gifs");
             $(".gif-results").prepend(gifImg);
           }
           $(".gif-results").show();
+          $(".use-meme-button").show();
         });
       });
+
+      //CLASS EXAMPLE: localStorage.setItem("todolist", JSON.stringify(list));
 
       // END: Code to run once the screen is fully transitioned in
 
