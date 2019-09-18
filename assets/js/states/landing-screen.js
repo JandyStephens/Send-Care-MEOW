@@ -1,5 +1,8 @@
 var landingScreenState = {
 
+    currentlyScrolling: false,
+    currentScrollPosition: $(document).scrollTop(),
+
     unloadState: function (nextState) {
 
         // Start hiding the landing screen
@@ -11,6 +14,9 @@ var landingScreenState = {
 
         // Detach button click events here too (this handles the case of using forward/back navigation buttons causing multiple fade ins/outs)
         landingScreenState.clearButtonClickHandlers();
+
+        // Detach window scroll event handler
+        $(window).off('scroll');
     },
 
     loadState: function (prevState) {
@@ -30,6 +36,48 @@ var landingScreenState = {
             // Now that we're done hiding the landing screen, switch to the create package screen
             window.location.hash = 'create-package-screen';
         });
+
+        // Attach a scroll event handler to handle auto scrolling between top and bottom
+        $(window).on('scroll', function(jQueryEvent){
+
+            if (!landingScreenState.currentlyScrolling) {
+
+                console.log('handling scroll event');
+
+                // Flag us as scrolling manually
+                landingScreenState.currentlyScrolling = true;
+
+                // If we're scrolling up
+                if ($(document).scrollTop() < landingScreenState.currentScrollPosition) {
+                    console.log('scrolling up');
+
+                    TweenMax.to(window, 1, {
+                        scrollTo: {
+                          y: 0,
+                        },
+                        onComplete: landingScreenState.handleScrollerStop,
+                        onOverwrite: landingScreenState.handleScrollerStop,
+                    });
+                }
+                // If we're scrolling down
+                else {
+                    console.log('scrolling down');
+
+                    TweenMax.to(window, 1, {
+                        scrollTo: {
+                          y: $(window).height(),
+                        },
+                        onComplete: landingScreenState.handleScrollerStop,
+                        onOverwrite: landingScreenState.handleScrollerStop,
+                    });
+                }
+            }
+        });
+    },
+
+    handleScrollerStop: function () {
+        landingScreenState.currentlyScrolling = false;
+        landingScreenState.currentScrollPosition = $(document).scrollTop();
     },
 
     clearButtonClickHandlers: function () {
