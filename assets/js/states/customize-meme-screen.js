@@ -109,7 +109,7 @@ var customizeMemeScreenState = {
 
       // Attach a click event handler to the cancel button (done here so its not clickable until fully on screen)
       ui.get$FromRef("cancel-meme-button").on("click", function() {
-        console.log("handling click on the cancel button");
+        // console.log("handling click on the cancel button");
 
         // START: Code to run immediately upon clicking the cancel button
         // I'd suggest clearing the form or resetting it to saved data here.
