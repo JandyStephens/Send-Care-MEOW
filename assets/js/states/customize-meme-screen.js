@@ -25,19 +25,21 @@ var customizeMemeScreenState = {
 
     // START: Code to run before this screen starts transitioning in
     // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
-
+    $(".gif-results").empty();
+    $(".meme-input").val("");
     //   >>> Replace this line with any code that may make sense here <<<
 
     // END: Code to run before this screen starts transitioning in
 
     // Show the customize meme screen
     ui.showByRef("customize-meme-screen", function() {
-      console.log("done showing customize meme screen");
+      //   console.log("done showing customize meme screen");
 
       // START: Code to run once the screen is fully transitioned in
       // I'd suggest putting any changes here you want to activate once the screen is done transitioning in.
 
       //   >>> Replace this line with any code that may make sense here <<<
+
       $(".meme-btn").on("click", function(event) {
         event.preventDefault();
         // event.stopPropagation();
