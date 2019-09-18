@@ -1,0 +1,92 @@
+body {
+  font-family: "Europa", sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+section {
+  width: 100%;
+  top: 0px;
+}
+
+#preview-screen {
+  margin-bottom: 120px;
+}
+
+.spotify-player-container {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
+
+.spotify-player {
+  display: block;
+  margin: 0px auto;
+}
+
+.landing {
+  height: 100vh;
+}
+
+.landing-start-button {
+  cursor: pointer;
+}
+
+.hero {
+  margin: 0 auto;
+}
+
+.spinny {
+  left: 50%;
+  display: block;
+  text-align: center;
+  transform: translateX(-50%);
+  -webkit-transform: translate(-50%, 0);
+  animation: fade_move_down 3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+input::-webkit-input-placeholder{
+    opacity: 0.5;
+}
+
+.site-info-container {
+  padding: 0 3rem;
+}
+
+.care-package-form {
+  margin-top: 5rem;
+}
+
+.gif-results {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  display: none;
+}
+
+@keyframes fade_move_down {
+  0% {
+    transform: translate(0, -20px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+}
+
+.use-meme-button {
+  display: none;
+}
+
+.showMsg {
+  padding: 3%;
+  background-color: yellow;
+  color: red;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 150%;
+  border-radius: 25px;
+}
