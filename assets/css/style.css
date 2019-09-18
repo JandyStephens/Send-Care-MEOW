@@ -1,12 +1,17 @@
-body {
-  font-family: "Europa", sans-serif;
-  margin: 0px;
-  padding: 0px;
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
-section {
-  width: 100%;
-  top: 0px;
+body{
+    font-family: 'Europa', sans-serif;
+}
+
+section{
+    width: 100%;
+    top: 0px;
 }
 
 #preview-screen {
@@ -25,16 +30,13 @@ section {
   margin: 0px auto;
 }
 
-.landing {
-  height: 100vh;
-}
-
-.landing-start-button {
-  cursor: pointer;
-}
-
-.hero {
-  margin: 0 auto;
+.hero{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
 }
 
 .spinny {
