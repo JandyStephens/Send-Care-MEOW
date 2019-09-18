@@ -12,6 +12,9 @@ var customizeSpotifyScreenState = {
             ui.get$FromRef('customize-spotify-screen').css('position', 'static');
         });
 
+        // Detach button click events here too (this handles the case of using forward/back navigation buttons causing multiple fade ins/outs)
+        customizeSpotifyScreenState.clearButtonClickHandlers();
+
         // START: General code to run after this screen finishes transitioning out and immediately before the state switches
 
         //   >>> Replace this line with any code that may make sense here <<<
@@ -20,9 +23,6 @@ var customizeSpotifyScreenState = {
     },
     
     loadState: function (prevState) {
-
-        // Push this state to the browser history
-        history.pushState({storedState: 'customize-spotify-screen'}, 'Customize your Spotify playlist', '#customize-spotify-screen');
 
         // START: Code to run before this screen starts transitioning in
         // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
@@ -82,17 +82,13 @@ var customizeSpotifyScreenState = {
                     customizeSpotifyScreenState.savedPlaylistID = customizeSpotifyScreenState.playlistID;
                 }
 
-                // Detach the click handlers from the playlist selection buttons
-                ui.get$FromRef('select-playlist-buttons').off('click');
-
                 // END: Code to run immediately upon clicking the use button
 
-                // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-                ui.get$FromRef('use-spotify-button').off('click');
-                ui.get$FromRef('cancel-spotify-button').off('click');
+                // Detach all the button click event handlers
+                customizeSpotifyScreenState.clearButtonClickHandlers();
 
                 // Switch back to the create package screen
-                sm.switchState('create-package-screen');
+                window.location.hash = 'create-package-screen';
             });
 
             // Attach a click event handler to the cancel button (done here so its not clickable until fully on screen)
@@ -115,19 +111,25 @@ var customizeSpotifyScreenState = {
                     ui.get$FromRef('select-playlist-buttons').filter(`button[data-playlist-id="${customizeSpotifyScreenState.playlistID}"]`).attr('disabled', true);
                 }
 
-                // Detach the click handlers from the playlist selection buttons
-                ui.get$FromRef('select-playlist-buttons').off('click');
-
                 // END: Code to run immediately upon clicking the cancel button
 
-                // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-                ui.get$FromRef('use-spotify-button').off('click');
-                ui.get$FromRef('cancel-spotify-button').off('click');
+                // Detach all the button click event handlers
+                customizeSpotifyScreenState.clearButtonClickHandlers();
 
                 // Switch back to the create package screen
-                sm.switchState('create-package-screen');
+                window.location.hash = 'create-package-screen';
             });
         });
+    },
+
+    clearButtonClickHandlers: function () {
+
+        // Detach the click handlers from the playlist selection buttons
+        ui.get$FromRef('select-playlist-buttons').off('click');
+
+        // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
+        ui.get$FromRef('use-spotify-button').off('click');
+        ui.get$FromRef('cancel-spotify-button').off('click');
     },
 };
 

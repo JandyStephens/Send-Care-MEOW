@@ -9,6 +9,9 @@ var customizeMessageScreenState = {
             ui.get$FromRef('customize-message-screen').css('position', 'static');
         });
 
+        // Detach button click events here too (this handles the case of using forward/back navigation buttons causing multiple fade ins/outs)
+        customizeMessageScreenState.clearButtonClickHandlers();
+
         // START: General code to run after this screen finishes transitioning out and immediately before the state switches
 
         //   >>> Replace this line with any code that may make sense here <<<
@@ -17,9 +20,6 @@ var customizeMessageScreenState = {
     },
     
     loadState: function (prevState) {
-
-        // Push this state to the browser history
-        history.pushState({storedState: 'customize-message-screen'}, 'Customize your Message', '#customize-message-screen');
 
         // START: Code to run before this screen starts transitioning in
         // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
@@ -52,11 +52,10 @@ var customizeMessageScreenState = {
                 // END: Code to run immediately upon clicking the use button
 
                 // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-                ui.get$FromRef('use-message-button').off('click');
-                ui.get$FromRef('cancel-message-button').off('click');
+                customizeMessageScreenState.clearButtonClickHandlers();
 
                 // Switch back to the create package screen
-                sm.switchState('create-package-screen');
+                window.location.hash = 'create-package-screen';
             });
 
             // Attach a click event handler to the cancel button (done here so its not clickable until fully on screen)
@@ -71,18 +70,24 @@ var customizeMessageScreenState = {
                 // END: Code to run immediately upon clicking the cancel button
 
                 // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-                ui.get$FromRef('use-message-button').off('click');
-                ui.get$FromRef('cancel-message-button').off('click');
+                customizeMessageScreenState.clearButtonClickHandlers();
 
                 // Switch back to the create package screen
-                sm.switchState('create-package-screen');
+                window.location.hash = 'create-package-screen';
             });
         });
+    },
+
+    clearButtonClickHandlers: function () {
+
+        ui.get$FromRef('use-message-button').off('click');
+        ui.get$FromRef('cancel-message-button').off('click');
     },
 };
 
 // Add references to jQuery selections of HTML elements that are permanently on the page
 ui.add$ToRef('customize-message-screen', '#customize-message-screen');
+
 ui.add$ToRef('cancel-message-button', '.cancel-message-button');
 ui.add$ToRef('use-message-button', '.use-message-button');
 
