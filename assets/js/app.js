@@ -33,13 +33,28 @@ var app = (function(){
             }
 
             // Now switch to the starting page
-            sm.switchState(startingPage);
+            window.location.hash = startingPage;
 
-            // Attach an event handler to the page popping a state
-            $(window).on('popstate', function(jQueryEvent){
+            // If we're not already switching states from setting the hash above
+            if (!sm.isSwitching()) {
 
-                // Now switch to the state it should switch to
-                sm.switchState(jQueryEvent.originalEvent.state.storedState)
+                // And if we're not already in this state
+                if (sm.getCurrentState() !== window.location.hash.slice(1)) {
+
+                    // Switch to the starting page manually
+                    sm.switchState(startingPage);
+                }
+            }
+
+            // Attach an event handler to the window location hash change event
+            $(window).on('hashchange', function(jQueryEvent){
+
+                // If we're not already in this state
+                if (sm.getCurrentState() !== window.location.hash.slice(1)){
+
+                    // Switch to the state specified by the new window location hash
+                    sm.switchState(window.location.hash.slice(1)); // Slicing 1 here is grabbing the string minus the first character
+                }
             });
         },
     };

@@ -8,12 +8,12 @@ var createPackageScreenState = {
             console.log('done hiding create package screen');
             ui.get$FromRef('create-package-screen').css('position', 'static');
         });
+
+        // Detach button click events here too (this handles the case of using forward/back navigation buttons causing multiple fade ins/outs)
+        createPackageScreenState.clearButtonClickHandlers();
     },
 
     loadState: function (prevState) {
-
-        // Push this state to the browser history
-        history.pushState({storedState: 'create-package-screen'}, 'Create a Care Package', '#create-package-screen');
 
         // Show the create package screen
         ui.showByRef('create-package-screen', function(){
@@ -42,11 +42,10 @@ var createPackageScreenState = {
                 // END: Code to run immediately upon clicking the use button
 
                 // Detach the click event handlers from all the buttons
-                ui.get$FromRef('customize-buttons').off('click');
-                ui.get$FromRef('preview-button').off('click');
+                createPackageScreenState.clearButtonClickHandlers();
 
                 // Switch to the respective customization screen
-                sm.switchState('preview-screen');
+                window.location.hash = 'preview-screen';
             });
         });
     },
@@ -56,12 +55,17 @@ var createPackageScreenState = {
             console.log(`handling click on the ${$ref} customize button`);
 
             // Detach the click event handlers from all the buttons
-            ui.get$FromRef('customize-buttons').off('click');
-            ui.get$FromRef('preview-button').off('click');
+            createPackageScreenState.clearButtonClickHandlers();
 
             // Switch to the respective customization screen
-            sm.switchState(nextState);
+            window.location.hash = nextState;
         });
+    },
+
+    clearButtonClickHandlers: function () {
+
+        ui.get$FromRef('customize-buttons').off('click');
+        ui.get$FromRef('preview-button').off('click');
     },
 };
 

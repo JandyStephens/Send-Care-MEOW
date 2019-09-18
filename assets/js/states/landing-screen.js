@@ -8,12 +8,12 @@ var landingScreenState = {
             console.log('done hiding landing screen');
             ui.get$FromRef('landing-screen').css('position', 'static');
         });
+
+        // Detach button click events here too (this handles the case of using forward/back navigation buttons causing multiple fade ins/outs)
+        landingScreenState.clearButtonClickHandlers();
     },
 
     loadState: function (prevState) {
-
-        // Push this state to the browser history
-        history.pushState({storedState: 'landing-screen'}, 'Send Care Meow', '#landing-screen');
 
         // Show the landing screen
         ui.showByRef('landing-screen', function(){
@@ -25,11 +25,16 @@ var landingScreenState = {
             console.log('handling click on the landing start button');
             
             // Detach the click event handler from the landing start button
-            ui.get$FromRef('landing-start-button').off('click');
+            landingScreenState.clearButtonClickHandlers();
 
-            // Now that we're done hiding the landing screen, switch to the about screen
-            sm.switchState('create-package-screen');
+            // Now that we're done hiding the landing screen, switch to the create package screen
+            window.location.hash = 'create-package-screen';
         });
+    },
+
+    clearButtonClickHandlers: function () {
+
+        ui.get$FromRef('landing-start-button').off('click');
     },
 };
 

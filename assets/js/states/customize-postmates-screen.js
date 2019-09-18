@@ -12,6 +12,9 @@ var customizePostmatesScreenState = {
             ui.get$FromRef('customize-postmates-screen').css('position', 'static');
         });
 
+        // Detach button click events here too (this handles the case of using forward/back navigation buttons causing multiple fade ins/outs)
+        customizePostmatesScreenState.clearButtonClickHandlers();
+
         // START: General code to run after this screen finishes transitioning out and immediately before the state switches
 
         //   >>> Replace this line with any code that may make sense here <<<
@@ -20,11 +23,6 @@ var customizePostmatesScreenState = {
     },
 
     loadState: function (prevState) {
-
-        // Push this state to the browser history
-        history.pushState({
-            storedState: 'customize-postmates-screen'
-        }, 'Customize your Postmates Delivery', '#customize-postmates-screen');
 
         // START: Code to run before this screen starts transitioning in
         // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
@@ -76,11 +74,10 @@ var customizePostmatesScreenState = {
                 // END: Code to run immediately upon clicking the use button
 
                 // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-                ui.get$FromRef('use-postmates-button').off('click');
-                ui.get$FromRef('cancel-postmates-button').off('click');
+                customizePostmatesScreenState.clearButtonClickHandlers();
 
                 // Switch back to the create package screen
-                sm.switchState('create-package-screen');
+                window.location.hash = 'create-package-screen';
             });
 
             // Attach a click event handler to the cancel button (done here so its not clickable until fully on screen)
@@ -88,20 +85,25 @@ var customizePostmatesScreenState = {
                 console.log('handling click on the cancel button');
 
                 // START: Code to run immediately upon clicking the cancel button
-                // I'd suggest either clearing the form or resetting it to saved data here or right before the transition back to the create package state. Depends on if you want the user to see the cancellation or not.
+                // I'd suggest clearing the form or resetting it to saved data here.
 
                 //   >>> Replace this line with any code that may make sense here <<<
 
                 // END: Code to run immediately upon clicking the cancel button
 
                 // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-                ui.get$FromRef('use-postmates-button').off('click');
-                ui.get$FromRef('cancel-postmates-button').off('click');
+                customizePostmatesScreenState.clearButtonClickHandlers();
 
                 // Switch back to the create package screen
-                sm.switchState('create-package-screen');
+                window.location.hash = 'create-package-screen';
             });
         });
+    },
+
+    clearButtonClickHandlers: function () {
+
+        ui.get$FromRef('use-postmates-button').off('click');
+        ui.get$FromRef('cancel-postmates-button').off('click');
     },
 };
 
