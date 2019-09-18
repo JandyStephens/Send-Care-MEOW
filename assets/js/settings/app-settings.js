@@ -11,19 +11,3 @@ const postmatesData = function() {
     "dropoff_phone_number": "2066666666"
   };
 };
-
-//$.ajax({
-//  url: " https://www.jsea.dev/pm.php",
-//  method: "POST",
-  //   headers: {
-  //     Authorization: "Basic " + btoa("a582f566-9146-4c38-82cc-731d2da21732" + ":")
-  //   },
-
-//  data: postmatesData()
-//})
-//  .then(function(response) {
-//    console.log("postmates response", response);
-//  })
-//  .catch(function(error) {
-//    console.error("Error from Postmates call: ", error.message);
-//  });
