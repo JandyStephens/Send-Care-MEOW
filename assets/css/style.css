@@ -9,24 +9,24 @@ section {
   top: 0px;
 }
 
-#preview-screen{
-    margin-bottom: 120px;
+#preview-screen {
+  margin-bottom: 120px;
 }
 
-.spotify-player-container{
-    width: 100%;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
+.spotify-player-container {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
 }
 
-.spotify-player{
-    display: block;
-    margin: 0px auto;
+.spotify-player {
+  display: block;
+  margin: 0px auto;
 }
 
-.landing{
-    height: 100vh;
+.landing {
+  height: 100vh;
 }
 
 .landing-start-button {
@@ -76,4 +76,13 @@ section {
 
 .use-meme-button {
   display: none;
+}
+
+.showMsg {
+  padding: 3%;
+  background-color: yellow;
+  color: red;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 150%;
+  border-radius: 25px;
 }
