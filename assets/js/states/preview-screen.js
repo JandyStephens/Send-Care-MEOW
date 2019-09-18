@@ -1,13 +1,11 @@
 var previewScreenState = {
-
-    unloadState: function (nextState) {
-
-        // Start hiding the customization screen
-        ui.get$FromRef('preview-screen').css('position', 'absolute');
-        ui.hideByRef('preview-screen', function(){
-            console.log('done hiding preview screen');
-            ui.get$FromRef('preview-screen').css('position', 'static');
-        });
+  unloadState: function(nextState) {
+    // Start hiding the customization screen
+    ui.get$FromRef("preview-screen").css("position", "absolute");
+    ui.hideByRef("preview-screen", function() {
+      console.log("done hiding preview screen");
+      ui.get$FromRef("preview-screen").css("position", "static");
+    });
 
         // Detach button click events here too (this handles the case of using forward/back navigation buttons causing multiple fade ins/outs)
         previewScreenState.clearButtonClickHandlers();
@@ -32,29 +30,36 @@ var previewScreenState = {
             ui.get$FromRef('spotify-player-container').html(`<iframe class="spotify-player" src="https://open.spotify.com/embed/playlist/${playlistID}" width="600" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
         }
 
-        // END: Code to run before this screen starts transitioning in
+    // END: Code to run before this screen starts transitioning in
 
-        // Show the preview screen
-        ui.showByRef('preview-screen', function(){
-            console.log('done showing preview screen');
+    // Show the preview screen
+    ui.showByRef("preview-screen", function() {
+      console.log("done showing preview screen");
 
-            // START: Code to run once the screen is fully transitioned in
-            // I'd suggest putting any changes here you want to activate once the screen is done transitioning in.
+      // START: Code to run once the screen is fully transitioned in
+      // I'd suggest putting any changes here you want to activate once the screen is done transitioning in.
 
-            //   >>> Replace this line with any code that may make sense here <<<
+      //   >>> Replace this line with any code that may make sense here <<<
+      $(".showGifs").empty();
+      for (i = 0; i < 3; i++) {
+        var gifUrl = localStorage.getItem("gif" + i);
+        var imgDiv = $("<img>");
+        imgDiv.attr("src", gifUrl);
+        $(".showGifs").append(imgDiv);
+      }
 
-            // END: Code to run once the screen is fully transitioned in
+      // END: Code to run once the screen is fully transitioned in
 
-            // Attach a click event handler to the use button (done here so its not clickable until fully on screen)
-            ui.get$FromRef('use-preview-button').on('click', function(){
-                console.log('handling click on the use button');
+      // Attach a click event handler to the use button (done here so its not clickable until fully on screen)
+      ui.get$FromRef("use-preview-button").on("click", function() {
+        console.log("handling click on the use button");
 
-                // START: Code to run immediately upon clicking the use button
-                // I'd suggest putting the code to send the care package here.
+        // START: Code to run immediately upon clicking the use button
+        // I'd suggest putting the code to send the care package here.
 
-                //   >>> Replace this line with any code that may make sense here <<<
+        //   >>> Replace this line with any code that may make sense here <<<
 
-                // END: Code to run immediately upon clicking the use button
+        // END: Code to run immediately upon clicking the use button
 
                 // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
                 previewScreenState.clearButtonClickHandlers();
@@ -63,15 +68,15 @@ var previewScreenState = {
                 window.location.hash = 'package-sent-screen';
             });
 
-            // Attach a click event handler to the cancel button (done here so its not clickable until fully on screen)
-            ui.get$FromRef('cancel-preview-button').on('click', function(){
-                console.log('handling click on the cancel button');
+      // Attach a click event handler to the cancel button (done here so its not clickable until fully on screen)
+      ui.get$FromRef("cancel-preview-button").on("click", function() {
+        console.log("handling click on the cancel button");
 
-                // START: Code to run immediately upon clicking the cancel button
+        // START: Code to run immediately upon clicking the cancel button
 
-                //   >>> Replace this line with any code that may make sense here <<<
+        //   >>> Replace this line with any code that may make sense here <<<
 
-                // END: Code to run immediately upon clicking the cancel button
+        // END: Code to run immediately upon clicking the cancel button
 
                 // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
                 previewScreenState.clearButtonClickHandlers();
@@ -98,4 +103,4 @@ ui.add$ToRef('cancel-preview-button', '.cancel-preview-button');
 ui.add$ToRef('use-preview-button', '.use-preview-button');
 
 // Add our new state to the state machine
-sm.addState('preview-screen', previewScreenState);
+sm.addState("preview-screen", previewScreenState);

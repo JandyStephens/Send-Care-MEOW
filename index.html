@@ -72,7 +72,7 @@
             </g>
           </svg>
           <p class="py-5">Choose from items including a Postmates delivery, a personalized Spotify playlist, a funny
-            meme, or even a
+            meme, or just a
             nice message!</p>
         </div>
         <div class="col text-center mt-4">
@@ -81,7 +81,7 @@
               d="M84.417,55.287H79.668a15.863,15.863,0,0,0,1.838-7.277A16.034,16.034,0,0,0,65.5,32c-7.568,0-12.462,3.875-18.739,12.426C40.48,35.875,35.586,32,28.018,32a16.034,16.034,0,0,0-16.01,16.01,15.64,15.64,0,0,0,1.838,7.277H8.733A8.735,8.735,0,0,0,0,64.02V87.307a2.919,2.919,0,0,0,2.911,2.911H5.822v13.718a9.581,9.581,0,0,0,9.57,9.57H77.758a9.581,9.581,0,0,0,9.57-9.57V90.218h2.911a2.919,2.919,0,0,0,2.911-2.911V64.02A8.735,8.735,0,0,0,84.417,55.287ZM42.208,104.773H15.391a.835.835,0,0,1-.837-.837V90.218H34.931V81.486H8.733V64.02H42.208ZM28,55.287a7.277,7.277,0,1,1,0-14.555c4,0,6.822,1.383,15.3,14.009l.364.546Zm22.2-.546c8.478-12.626,11.3-14.009,15.3-14.009a7.277,7.277,0,0,1,0,14.555H49.831ZM84.417,81.486h-26.2v8.733H78.595v13.718a.835.835,0,0,1-.837.837H50.941V64.02H84.417Z"
               transform="translate(0 -32)" />
           </svg>
-          <p class="py-5">Maybe they would prefer a gift from a friend!</p>
+          <p class="py-5">Maybe a gift to cheer them up!</p>
         </div>
       </div>
     </div>
@@ -135,7 +135,7 @@
       <div class="customize-button customize-meme-button">
         <div class="card package-item">
           <div class="card-body">
-            <h4 class="card-title">Add a Charming Meme!</h4>
+            <h4 class="card-title">Add a Fun GIF!</h4>
             <div class="card-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
                 <g id="Path_8" data-name="Path 8" fill="#ff7876">
@@ -157,7 +157,7 @@
       <div class="customize-button customize-spotify-button">
         <div class="card package-item">
           <div class="card-body">
-            <h4 class="card-title">Add a Spotify song!</h4>
+            <h4 class="card-title">Add a Spotify playlist!</h4>
             <div class="card-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
                 <g id="Path_8" data-name="Path 8" fill="#454545">
@@ -178,7 +178,7 @@
       </div>
       <div class="row mb-5">
         <div class="col text-center">
-          <button class="btn btn-primary preview-button">Preview what they'll see!</button>
+          <button class="btn btn-primary preview-button">Preview your care package</button>
         </div>
       </div>
     </div>
@@ -211,24 +211,23 @@
         <div class="col text-center">
           <h3>Search for a funny GIF!</h3>
           <form class="form-inline mt-3 d-inline-block">
-              <input class="form-control mr-sm-2" type="search" placeholder="Cat chasing laser" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              <input class="form-control mr-sm-2 meme-input" type="search" placeholder="Cat chasing laser" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0 meme-btn" type="submit">Search</button>
             </form>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <div class="gif-results mb-5">
-
           </div>
         </div>
       </div>
       <div class="row mb-5">
         <div class="col text-center">
-          <button class="btn btn-secondary cancel-meme-button">Cancel changes!</button>
+          <button class="btn btn-secondary cancel-meme-button">Go back</button>
         </div>
         <div class="col text-center">
-          <button class="btn btn-primary use-meme-button">Use this Meme!</button>
+          <button class="btn btn-primary use-meme-button">Yaaas, send these memes!</button>
         </div>
       </div>
     </div>
@@ -543,6 +542,9 @@
         <div class="col text-center">
           <h2>Preview</h2>
         </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col text-center showGifs"></div>
       </div>
       <div class="row mb-5">
         <div class="col text-center">
