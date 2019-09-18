@@ -1,50 +1,65 @@
-var app = (function() {
-  var privateFeatures = {};
+var app = (function(){
 
-  var publicFeatures = {
-    initialize: function() {
-      // Open the database we'll be using to save data
-      database.open();
+    var privateFeatures = {
 
-      // Attach an event handler to the page unloading; so we can safely close the database if we need to
-      $(window).on("unload", function() {
-        console.log("handling page unloading");
+    };
 
-        // Close the database before leaving the page to avoid any sort of issues if we're utilizing a database stream
-        database.close();
-      });
+    var publicFeatures = {
 
-      // Hide all sections to begin with
-      $("section").hide();
+        initialize: function(){
 
-      // Set our starting page
-      var startingPage = "landing-screen";
+            // Open the database we'll be using to save data
+            database.open();
 
-      // If the URL of the page has a hashtag attached
-      if (window.location.hash !== "") {
-        // Change our starting page to the correct page
-        startingPage = window.location.hash.slice(1);
-      }
+            // Attach an event handler to the page unloading; so we can safely close the database if we need to
+            $(window).on('unload', function(){
+                console.log('handling page unloading');
 
-      // Now switch to the starting page
-      sm.switchState(startingPage);
+                // Close the database before leaving the page to avoid any sort of issues if we're utilizing a database stream
+                database.close();
+            });
 
-      // Attach an event handler to the page popping a state
-      $(window).on("popstate", function(jQueryEvent) {
-        //If a stored state exists
-        if (
-          jQueryEvent.originalEvent.hasOwnProperty("state") &&
-          jQueryEvent.originalEvent.state !== null &&
-          jQueryEvent.originalEvent.state.hasOwnProperty("storedState")
-        ) {
-          // Now switch to the state it should switch to
-          sm.switchState(jQueryEvent.originalEvent.state.storedState);
-        }
-      });
-    }
-  };
+            // Hide all sections to begin with
+            $('section').hide();
 
-  return publicFeatures;
+            // Set our starting page
+            var startingPage = 'landing-screen';
+
+            // If the URL of the page has a hashtag attached
+            if (window.location.hash !== '') {
+
+                // Change our starting page to the correct page
+                startingPage = window.location.hash.slice(1);
+            }
+
+            // Now switch to the starting page
+            window.location.hash = startingPage;
+
+            // If we're not already switching states from setting the hash above
+            if (!sm.isSwitching()) {
+
+                // And if we're not already in this state
+                if (sm.getCurrentState() !== window.location.hash.slice(1)) {
+
+                    // Switch to the starting page manually
+                    sm.switchState(startingPage);
+                }
+            }
+
+            // Attach an event handler to the window location hash change event
+            $(window).on('hashchange', function(jQueryEvent){
+
+                // If we're not already in this state
+                if (sm.getCurrentState() !== window.location.hash.slice(1)){
+
+                    // Switch to the state specified by the new window location hash
+                    sm.switchState(window.location.hash.slice(1)); // Slicing 1 here is grabbing the string minus the first character
+                }
+            });
+        },
+    };
+
+    return publicFeatures;
 })();
 
 // Start the app

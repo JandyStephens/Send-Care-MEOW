@@ -12,8 +12,6 @@ var packageSentScreenState = {
 
     loadState: function (prevState) {
 
-        history.pushState({storedState: 'package-sent-screen'}, 'Care Package Sent!', '#package-sent-screen');
-
         // Show the package sent screen
         ui.showByRef('package-sent-screen', function(){
             console.log('done showing package sent screen');

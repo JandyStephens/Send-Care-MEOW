@@ -9,8 +9,24 @@ section {
   top: 0px;
 }
 
-.landing {
-  height: 100vh;
+#preview-screen{
+    margin-bottom: 120px;
+}
+
+.spotify-player-container{
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
+
+.spotify-player{
+    display: block;
+    margin: 0px auto;
+}
+
+.landing{
+    height: 100vh;
 }
 
 .landing-start-button {

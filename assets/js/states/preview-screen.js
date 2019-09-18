@@ -7,24 +7,28 @@ var previewScreenState = {
       ui.get$FromRef("preview-screen").css("position", "static");
     });
 
-    // START: General code to run after this screen finishes transitioning out and immediately before the state switches
+        // Detach button click events here too (this handles the case of using forward/back navigation buttons causing multiple fade ins/outs)
+        previewScreenState.clearButtonClickHandlers();
 
-    //   >>> Replace this line with any code that may make sense here <<<
+        // START: General code to run after this screen finishes transitioning out and immediately before the state switches
 
-    // END: General code to run after this screen finishes transitioning out and immediately before the state switches
-  },
+        // Destroy the spotify player
+        ui.get$FromRef('spotify-player-container').empty();
 
-  loadState: function(prevState) {
-    window.history.pushState(
-      { storedState: "preview-screen" },
-      "Care Package Preview",
-      "#preview-screen"
-    );
+        // END: General code to run after this screen finishes transitioning out and immediately before the state switches
+    },
+    
+    loadState: function (prevState) {
 
-    // START: Code to run before this screen starts transitioning in
-    // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
+        // START: Code to run before this screen starts transitioning in
+        // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
 
-    //   >>> Replace this line with any code that may make sense here <<<
+        // If we have a spotify playlist set
+        if (database.exists('spotify-playlist')) {
+
+            var playlistID = database.loadObject('spotify-playlist').playlistID;
+            ui.get$FromRef('spotify-player-container').html(`<iframe class="spotify-player" src="https://open.spotify.com/embed/playlist/${playlistID}" width="600" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+        }
 
     // END: Code to run before this screen starts transitioning in
 
@@ -57,13 +61,12 @@ var previewScreenState = {
 
         // END: Code to run immediately upon clicking the use button
 
-        // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-        ui.get$FromRef("use-preview-button").off("click");
-        ui.get$FromRef("cancel-preview-button").off("click");
+                // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
+                previewScreenState.clearButtonClickHandlers();
 
-        // Switch to the package sent screen
-        sm.switchState("package-sent-screen");
-      });
+                // Switch to the package sent screen
+                window.location.hash = 'package-sent-screen';
+            });
 
       // Attach a click event handler to the cancel button (done here so its not clickable until fully on screen)
       ui.get$FromRef("cancel-preview-button").on("click", function() {
@@ -75,21 +78,29 @@ var previewScreenState = {
 
         // END: Code to run immediately upon clicking the cancel button
 
-        // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-        ui.get$FromRef("use-preview-button").off("click");
-        ui.get$FromRef("cancel-preview-button").off("click");
+                // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
+                previewScreenState.clearButtonClickHandlers();
 
-        // Switch back to the create package screen
-        sm.switchState("create-package-screen");
-      });
-    });
-  }
+                // Switch back to the create package screen
+                window.location.hash = 'create-package-screen';
+            });
+        });
+    },
+
+    clearButtonClickHandlers: function () {
+
+        ui.get$FromRef('use-preview-button').off('click');
+        ui.get$FromRef('cancel-preview-button').off('click');
+    },
 };
 
 // Add references to jQuery selections of HTML elements that are permanently on the page
-ui.add$ToRef("preview-screen", "#preview-screen");
-ui.add$ToRef("cancel-preview-button", ".cancel-preview-button");
-ui.add$ToRef("use-preview-button", ".use-preview-button");
+ui.add$ToRef('preview-screen', '#preview-screen');
+
+ui.add$ToRef('spotify-player-container', '.spotify-player-container');
+
+ui.add$ToRef('cancel-preview-button', '.cancel-preview-button');
+ui.add$ToRef('use-preview-button', '.use-preview-button');
 
 // Add our new state to the state machine
 sm.addState("preview-screen", previewScreenState);
