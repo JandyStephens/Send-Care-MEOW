@@ -10,6 +10,7 @@ var sm = (function(){
         // Set up the different variables needed to switch between States
         states: {},
         currentState: '',
+        currentlySwitching: false,
     };
 
     // Define our state machine public features here which will allow users to use it.
@@ -90,6 +91,9 @@ var sm = (function(){
 
             //#endregion
 
+            // Flag us as currently switching the state so we can prevent 'switchState' calls from happening inside switching states
+            privateFeatures.currentlySwitching = true;
+
             // Store the next state so individual states can plan accordingly
             var nextState = stateName;
 
@@ -112,6 +116,21 @@ var sm = (function(){
 
             // Load the new state
             privateFeatures.states[privateFeatures.currentState].loadState(previousState);
+
+            // Unflag us as currently switching the state
+            privateFeatures.currentlySwitching = false;
+        },
+
+        // Return whether the state machine is currently switching states or not
+        isSwitching: function () {
+
+            return privateFeatures.currentlySwitching;
+        },
+
+        // Return the current state name (which is a string)
+        getCurrentState: function () {
+
+            return privateFeatures.currentState;
         },
     };
 

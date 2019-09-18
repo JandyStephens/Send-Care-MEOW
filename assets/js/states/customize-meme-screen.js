@@ -9,6 +9,9 @@ var customizeMemeScreenState = {
             ui.get$FromRef('customize-meme-screen').css('position', 'static');
         });
 
+        // Detach button click events here too (this handles the case of using forward/back navigation buttons causing multiple fade ins/outs)
+        customizeMemeScreenState.clearButtonClickHandlers();
+
         // START: General code to run after this screen finishes transitioning out and immediately before the state switches
 
         //   >>> Replace this line with any code that may make sense here <<<
@@ -17,9 +20,6 @@ var customizeMemeScreenState = {
     },
     
     loadState: function (prevState) {
-
-        // Push this state to the browser history
-        history.pushState({storedState: 'customize-meme-screen'}, 'Customize your Meme', '#customize-meme-screen');
 
         // START: Code to run before this screen starts transitioning in
         // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
@@ -52,11 +52,10 @@ var customizeMemeScreenState = {
                 // END: Code to run immediately upon clicking the use button
 
                 // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-                ui.get$FromRef('use-meme-button').off('click');
-                ui.get$FromRef('cancel-meme-button').off('click');
+                customizeMemeScreenState.clearButtonClickHandlers();
 
                 // Switch back to the create package screen
-                sm.switchState('create-package-screen');
+                window.location.hash = 'create-package-screen';
             });
 
             // Attach a click event handler to the cancel button (done here so its not clickable until fully on screen)
@@ -71,13 +70,18 @@ var customizeMemeScreenState = {
                 // END: Code to run immediately upon clicking the cancel button
 
                 // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-                ui.get$FromRef('use-meme-button').off('click');
-                ui.get$FromRef('cancel-meme-button').off('click');
+                customizeMemeScreenState.clearButtonClickHandlers();
 
                 // Switch back to the create package screen
-                sm.switchState('create-package-screen');
+                window.location.hash = 'create-package-screen';
             });
         });
+    },
+
+    clearButtonClickHandlers: function () {
+
+        ui.get$FromRef('use-meme-button').off('click');
+        ui.get$FromRef('cancel-meme-button').off('click');
     },
 };
 
