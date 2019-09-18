@@ -154,7 +154,7 @@
       <div class="customize-button customize-meme-button">
         <div class="card package-item">
           <div class="card-body">
-            <h4 class="card-title">Add a Charming Meme!</h4>
+            <h4 class="card-title">Add a Fun GIF!</h4>
             <div class="card-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
                 <g id="Path_8" data-name="Path 8" fill="#ff7876">
@@ -176,7 +176,7 @@
       <div class="customize-button customize-spotify-button">
         <div class="card package-item">
           <div class="card-body">
-            <h4 class="card-title">Add a Spotify song!</h4>
+            <h4 class="card-title">Add a Spotify playlist!</h4>
             <div class="card-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
                 <g id="Path_8" data-name="Path 8" fill="#454545">
@@ -197,7 +197,7 @@
       </div>
       <div class="row mb-5">
         <div class="col text-center">
-          <button class="btn btn-primary preview-button">Preview what they'll see!</button>
+          <button class="btn btn-primary preview-button">Preview your care package</button>
         </div>
       </div>
     </div>
@@ -209,7 +209,7 @@
           <form>
             <h4>Send a kind message!</h4>
             <div class="form-group mt-5">
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Start message here..." rows="3"></textarea>
             </div>
           </form>
         </div>
@@ -230,150 +230,92 @@
         <div class="col text-center">
           <h3>Search for a funny GIF!</h3>
           <form class="form-inline mt-3 d-inline-block">
-              <input class="form-control mr-sm-2" type="search" placeholder="Cat chasing laser" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <input class="form-control mr-sm-2 meme-input" type="search" placeholder="Cat chasing laser"
+              aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 meme-btn" type="submit">Search</button>
+          </form>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <div class="gif-results mb-5">
-
           </div>
         </div>
       </div>
       <div class="row mb-5">
         <div class="col text-center">
-          <button class="btn btn-secondary cancel-meme-button">Cancel changes!</button>
+          <button class="btn btn-secondary cancel-meme-button">Go back</button>
         </div>
         <div class="col text-center">
-          <button class="btn btn-primary use-meme-button">Use this Meme!</button>
+          <button class="btn btn-primary use-meme-button">Yaaas, send these memes!</button>
         </div>
       </div>
     </div>
   </section>
-  <section id="customize-postmates-screen">
+  <section class="mt-5" id="customize-postmates-screen">
     <div class="container">
-      <div class="row">
+      <div class="row mb-4">
         <div class="col-md-4 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Your cart</span>
             <span class="badge badge-secondary badge-pill">3</span>
           </h4>
           <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Product name</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$12</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Second product</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Third item</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between bg-light">
-              <div class="text-success">
-                <h6 class="my-0">Promo code</h6>
-                <small>EXAMPLECODE</small>
-              </div>
-              <span class="text-success">-$5</span>
-            </li>
+            <div class="cart-sub-group">
+            </div>
             <li class="list-group-item d-flex justify-content-between">
               <span>Total (USD)</span>
-              <strong>$20</strong>
+              <strong class="cart-total"></strong>
             </li>
           </ul>
-
-          <form class="card p-2">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code">
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-secondary">Redeem</button>
-              </div>
-            </div>
-          </form>
         </div>
         <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">Billing address</h4>
+          <h4 class="mb-3">Your friend's delivery info</h4>
           <form class="needs-validation" novalidate="">
             <div class="row">
-              <div class="col-md-6 mb-3">
+              <div class="col-md-4 mb-3">
                 <label for="firstName">First name</label>
                 <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
-              <div class="col-md-6 mb-3">
+              <div class="col-md-4 mb-3">
                 <label for="lastName">Last name</label>
                 <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
                 <div class="invalid-feedback">
                   Valid last name is required.
                 </div>
               </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="username">Username</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">@</span>
-                </div>
-                <input type="text" class="form-control" id="username" placeholder="Username" required="">
-                <div class="invalid-feedback" style="width: 100%;">
-                  Your username is required.
+              <div class="col-md-4 mb-3">
+                <label for="firstName">Phone Number</label>
+                <input type="text" class="form-control" id="phoneNumber" placeholder="" value="" required="">
+                <div class="invalid-feedback">
+                  Valid number is required.
                 </div>
               </div>
             </div>
-
-            <div class="mb-3">
-              <label for="email">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
-              </div>
-            </div>
-
             <div class="mb-3">
               <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+              <input type="text" class="form-control" id="friend-address" placeholder="1234 Main St" required="">
               <div class="invalid-feedback">
                 Please enter your shipping address.
               </div>
             </div>
-
-            <div class="mb-3">
-              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-            </div>
-
             <div class="row">
               <div class="col-md-5 mb-3">
-                <label for="country">Country</label>
-                <select class="custom-select d-block w-100" id="country" required="">
-                  <option value="">Choose...</option>
-                  <option>United States</option>
-                </select>
+                <label for="country">City</label>
+                <input type="text" class="form-control" id="friend-city" placeholder="Seattle" required="">
                 <div class="invalid-feedback">
-                  Please select a valid country.
+                  Please select a valid city.
                 </div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="state">State</label>
-                <select class="custom-select d-block w-100" id="state" required="">
+                <select class="custom-select d-block w-100" id="friend-state" required="">
                   <option value="">Choose...</option>
                   <option>California</option>
+                  <option>Washington</option>
                 </select>
                 <div class="invalid-feedback">
                   Please provide a valid state.
@@ -381,87 +323,80 @@
               </div>
               <div class="col-md-3 mb-3">
                 <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required="">
+                <input type="text" class="form-control" id="friend-zip" placeholder="" required="">
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>
               </div>
             </div>
-            <hr class="mb-4">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="same-address">
-              <label class="custom-control-label" for="same-address">Shipping address is the same as my billing
-                address</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="save-info">
-              <label class="custom-control-label" for="save-info">Save this information for next time</label>
-            </div>
+
             <hr class="mb-4">
 
-            <h4 class="mb-3">Payment</h4>
-
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked=""
-                  required="">
-                <label class="custom-control-label" for="credit">Credit card</label>
+            <h4 class="mb-3">Where is this order from?</h4>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="firstName">Restaurant Name</label>
+                <input type="text" class="form-control" id="pickup-name" placeholder="" value="" required="">
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
               </div>
-              <div class="custom-control custom-radio">
-                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                <label class="custom-control-label" for="debit">Debit card</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                <label class="custom-control-label" for="paypal">PayPal</label>
+            </div>
+            <div class="mb-3">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="pickup-address" placeholder="1234 Main St" required="">
+              <div class="invalid-feedback">
+                Please enter your shipping address.
               </div>
             </div>
             <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="cc-name">Name on card</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                <small class="text-muted">Full name as displayed on card</small>
+              <div class="col-md-5 mb-3">
+                <label for="country">City</label>
+                <input type="text" class="form-control" id="pickup-city" placeholder="Seattle" required="">
                 <div class="invalid-feedback">
-                  Name on card is required
+                  Please select a valid city.
                 </div>
               </div>
-              <div class="col-md-6 mb-3">
-                <label for="cc-number">Credit card number</label>
-                <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+              <div class="col-md-4 mb-3">
+                <label for="state">State</label>
+                <select class="custom-select d-block w-100" id="pickup-state" required="">
+                  <option value="">Choose...</option>
+                  <option>California</option>
+                  <option>Washington</option>
+                </select>
                 <div class="invalid-feedback">
-                  Credit card number is required
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiration">Expiration</label>
-                <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                <div class="invalid-feedback">
-                  Expiration date required
+                  Please provide a valid state.
                 </div>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="cc-cvv">CVV</label>
-                <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control" id="pickup-zip" placeholder="98105" required="">
                 <div class="invalid-feedback">
-                  Security code required
+                  Zip code required.
+                </div>
+              </div>
+              <label for="menu-item-input">Add menu items</label>
+              <div class="input-group mb-3">
+
+                <input type="text" class="form-control" placeholder="NyQuil" id="menu-item-input">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary add-to-cart" type="button">Add</button>
                 </div>
               </div>
             </div>
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-          </form>
         </div>
+        <hr class="mb-4">
+        </form>
       </div>
-      <div class="row mb-5">
-        <div class="col text-center">
-          <button class="btn btn-secondary cancel-postmates-button">Cancel changes!</button>
-        </div>
-        <div class="col text-center">
-          <button class="btn btn-primary use-postmates-button">Use this Delivery!</button>
-        </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col text-center">
+        <button class="btn btn-secondary cancel-postmates-button">Cancel changes!</button>
       </div>
+      <div class="col text-center">
+        <button class="btn btn-primary use-postmates-button">Use this Delivery!</button>
+      </div>
+    </div>
     </div>
   </section>
   <section id="customize-spotify-screen">
@@ -477,7 +412,8 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
           <div class="card spotify-item">
-            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f00000002aa6e052e0a691dc2561ba1b9" alt="Playlist cover art">
+            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f00000002aa6e052e0a691dc2561ba1b9"
+              alt="Playlist cover art">
             <div class="card-body">
               <h4 class="card-title">Mood Booster</h4>
               <p class="card-text">Get happy with this pick-me-up playlist full of current feel-good songs!</p>
@@ -487,7 +423,8 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
           <div class="card spotify-item">
-            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f000000025af1070c80cd50dbbb4cfa19" alt="Playlist cover art">
+            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f000000025af1070c80cd50dbbb4cfa19"
+              alt="Playlist cover art">
             <div class="card-body">
               <h4 class="card-title">Happy Hits!</h4>
               <p class="card-text">Hits to boost your mood and fill you with happiness!</p>
@@ -497,7 +434,8 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
           <div class="card spotify-item">
-            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f00000002e649da22aa371c86c801603f" alt="Playlist cover art">
+            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f00000002e649da22aa371c86c801603f"
+              alt="Playlist cover art">
             <div class="card-body">
               <h4 class="card-title">Have a Great Day!</h4>
               <p class="card-text">Feel great with these timelessly fun songs!</p>
@@ -507,7 +445,8 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
           <div class="card spotify-item">
-            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f00000002326b9347e59a9d3225c76e79" alt="Playlist cover art">
+            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f00000002326b9347e59a9d3225c76e79"
+              alt="Playlist cover art">
             <div class="card-body">
               <h4 class="card-title">Confidence Boost</h4>
               <p class="card-text">You're on top of the world. Don't forget it.</p>
@@ -517,7 +456,8 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
           <div class="card spotify-item">
-            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f00000002adede38d73e13f7eff1726de" alt="Playlist cover art">
+            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f00000002adede38d73e13f7eff1726de"
+              alt="Playlist cover art">
             <div class="card-body">
               <h4 class="card-title">Sunny Day</h4>
               <p class="card-text">Easy listening soft pop hits for a pleasant day.</p>
@@ -527,7 +467,8 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
           <div class="card spotify-item">
-            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f0000000205b8d0fdcdd6e249dd36486e" alt="Playlist cover art">
+            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f0000000205b8d0fdcdd6e249dd36486e"
+              alt="Playlist cover art">
             <div class="card-body">
               <h4 class="card-title">Good Vibes</h4>
               <p class="card-text">Set it off with these epic anthems. Only good vibes here!</p>
@@ -537,7 +478,8 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
           <div class="card spotify-item">
-            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f0000000213a02d059c0479e65a850267" alt="Playlist cover art">
+            <img class="card-img-top" src="https://i.scdn.co/image/ab67706f0000000213a02d059c0479e65a850267"
+              alt="Playlist cover art">
             <div class="card-body">
               <h4 class="card-title">Feelin' Good</h4>
               <p class="card-text">Feel good with this positively timeless playlist!</p>
@@ -563,7 +505,13 @@
           <h2>Preview</h2>
         </div>
       </div>
-      <div class="row mb-5">
+      <div class="row mb-4">
+        <div class="col text-center showMsg"></div>
+      </div>
+      <div class="row mb-4">
+        <div class="col text-center showGifs"></div>
+      </div>
+      <div class="row mb-4">
         <div class="col text-center">
           <button class="btn btn-secondary cancel-preview-button">Go back and make changes!</button>
         </div>
@@ -573,7 +521,8 @@
       </div>
     </div>
     <div class="spotify-player-container">
-      <iframe class="spotify-player" src="" width="600" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      <iframe class="spotify-player" src="" width="600" height="80" frameborder="0" allowtransparency="true"
+        allow="encrypted-media"></iframe>
     </div>
   </section>
   <section id="package-sent-screen">
@@ -597,7 +546,6 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/ScrollToPlugin.min.js"></script>
   <!-- App-Specific JavaScript files. The order is important!!! -->
   <script src="./assets/js/imports/database.js"></script>
   <script src="./assets/js/imports/state-machine.js"></script>
