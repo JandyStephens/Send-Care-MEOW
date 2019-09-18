@@ -66,13 +66,15 @@ var customizeMemeScreenState = {
           //   console.log("meme response:", response.data);
 
           for (let i = 0; i < response.data.length; i++) {
-            console.log(response.data[i].images.original.url);
+            // console.log(response.data[i].images.original.url);
+            var gifUrl = response.data[i].images.original.url;
             var gifImg = $("<img>");
             gifImg
               .attr("class", "gif-images")
-              .attr("src", response.data[i].images.original.url)
+              .attr("src", gifUrl)
               .attr("alt", "gifs");
             $(".gif-results").prepend(gifImg);
+            localSelection.push(gifUrl);
           }
           $(".gif-results").show();
           $(".use-meme-button").show();
@@ -85,14 +87,16 @@ var customizeMemeScreenState = {
 
       // Attach a click event handler to the use button (done here so its not clickable until fully on screen)
       ui.get$FromRef("use-meme-button").on("click", function() {
-        console.log("handling click on the use button");
+        // console.log("handling click on the use button");
 
         // START: Code to run immediately upon clicking the use button
         // I'd suggest putting any validation code here; so we can 'return' the function before the transitioning-out code runs.
         // I'd also suggest saving the form data for usage later using 'database.saveObject(saveName, objectToSave)' once the form has been validated.
 
         //   >>> Replace this line with any code that may make sense here <<<
-
+        for (let i = 0; i < localSelection.length; i++) {
+          localStorage.setItem("gif" + i, localSelection[i]);
+        }
         // END: Code to run immediately upon clicking the use button
 
         // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
