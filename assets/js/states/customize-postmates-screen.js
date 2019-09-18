@@ -1,6 +1,29 @@
 var manifestItems = [];
 var postmatesResponse;
 
+function createPostmatesData(){
+    let name = $("#firstName").val();
+    let pickupAddress = $("#pickup-address").val() + ", " + 
+                        $("#pickup-city").val() + ", " + 
+                        $("#pickup-state").val() + ", " + 
+                        $("#pickup-zip").val();
+
+    let friendAddress = $("#friend-address").val() + ", " + 
+                        $("#friend-city").val() + ", " + 
+                        $("#friend-state").val() + ", " + 
+                        $("#friend-zip").val();
+    return {
+        "manifest": name + "'s care package!",
+        "manifest_items": manifestItems,
+        "pickup_name": $("#pickup-name").val(),
+        "pickup_address": pickupAddress,
+        "pickup_phone_number": "4155555555",
+        "dropoff_name": name + "'s house",
+        "dropoff_address": friendAddress,
+        "dropoff_phone_number": $("#phoneNumber").val()
+      }
+}
+
 var customizePostmatesScreenState = {
 
     unloadState: function (nextState) {
@@ -38,13 +61,17 @@ var customizePostmatesScreenState = {
             // START: Code to run once the screen is fully transitioned in
             // I'd suggest putting any changes here you want to activate once the screen is done transitioning in.
 
-            // END: Code to run once the screen is fully transitioned in
             ui.get$FromRef('add-to-cart').on('click', function () {
-                // Create new HTML nodes for cart list when an item is searched
+
+                // Create new HTML node for cart list when an item is searched
                 let newItem = $("<li>");
                 let title = $("<h6>");
                 let span = $("<span>");
-                let searchTerm = $("#menu-item-input").val();
+                let searchTerm = { 
+                                "name": $("#menu-item-input").val(), 
+                                "quantity": 1, 
+                                "size": "small" 
+                                }
 
                 newItem.addClass("list-group-item d-flex justify-content-between lh-condensed");
                 span.addClass("text-muted");
@@ -52,10 +79,10 @@ var customizePostmatesScreenState = {
 
                 manifestItems.push(searchTerm);
                 span.text("$" + Math.ceil(Math.random() * 15));
-                title.text(searchTerm);
+                title.text(searchTerm.name);
                 newItem.append(title);
                 newItem.append(span);
-                
+
                 $(".cart-sub-group").append(newItem);
                 console.log(manifestItems);
 
@@ -69,7 +96,18 @@ var customizePostmatesScreenState = {
                 // I'd suggest putting any validation code here; so we can 'return' the function before the transitioning-out code runs.
                 // I'd also suggest saving the form data for usage later using 'database.saveObject(saveName, objectToSave)' once the form has been validated.
 
-                
+                $.ajax({
+                        url: " https://www.jsea.dev/pm.php",
+                        method: "POST",
+
+                        data: createPostmatesData()
+                    })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.error("Error from Postmates call: ", error.message);
+                    });
 
                 // END: Code to run immediately upon clicking the use button
 

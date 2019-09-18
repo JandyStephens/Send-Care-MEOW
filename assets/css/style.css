@@ -46,6 +46,10 @@ section {
   animation: fade_move_down 3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
 }
 
+input::-webkit-input-placeholder{
+    opacity: 0.5;
+}
+
 .site-info-container {
   padding: 0 3rem;
 }
