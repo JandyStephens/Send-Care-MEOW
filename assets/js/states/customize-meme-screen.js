@@ -1,4 +1,4 @@
-const localSelection = [];
+var localSelection = [];
 var customizeMemeScreenState = {
   unloadState: function(nextState) {
     // Start hiding the customization screen
@@ -8,6 +8,9 @@ var customizeMemeScreenState = {
       ui.get$FromRef("customize-meme-screen").css("position", "static");
     });
 
+    // Detach button click events here too (this handles the case of using forward/back navigation buttons causing multiple fade ins/outs)
+    customizeMemeScreenState.clearButtonClickHandlers();
+
     // START: General code to run after this screen finishes transitioning out and immediately before the state switches
 
     //   >>> Replace this line with any code that may make sense here <<<
@@ -16,13 +19,6 @@ var customizeMemeScreenState = {
   },
 
   loadState: function(prevState) {
-    // Push this state to the browser history
-    history.pushState(
-      { storedState: "customize-meme-screen" },
-      "Customize your Meme",
-      "#customize-meme-screen"
-    );
-
     // START: Code to run before this screen starts transitioning in
     // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
     $(".gif-results").empty();
@@ -63,7 +59,7 @@ var customizeMemeScreenState = {
           method: "GET"
         }).then(function(response) {
           //   console.log("meme response:", response.data);
-
+          localSelection = [];
           for (let i = 0; i < response.data.length; i++) {
             // console.log(response.data[i].images.original.url);
             var gifUrl = response.data[i].images.original.url;
@@ -82,15 +78,6 @@ var customizeMemeScreenState = {
 
       //CLASS EXAMPLE: localStorage.setItem("todolist", JSON.stringify(list));
 
-        // Detach button click events here too (this handles the case of using forward/back navigation buttons causing multiple fade ins/outs)
-        customizeMemeScreenState.clearButtonClickHandlers();
-
-        // START: General code to run after this screen finishes transitioning out and immediately before the state switches
-
-        //   >>> Replace this line with any code that may make sense here <<<
-
-      // END: Code to run once the screen is fully transitioned in
-
       // Attach a click event handler to the use button (done here so its not clickable until fully on screen)
       ui.get$FromRef("use-meme-button").on("click", function() {
         // console.log("handling click on the use button");
@@ -99,15 +86,13 @@ var customizeMemeScreenState = {
         // I'd suggest putting any validation code here; so we can 'return' the function before the transitioning-out code runs.
         // I'd also suggest saving the form data for usage later using 'database.saveObject(saveName, objectToSave)' once the form has been validated.
 
-        //   >>> Replace this line with any code that may make sense here <<<
         for (let i = 0; i < localSelection.length; i++) {
           localStorage.setItem("gif" + i, localSelection[i]);
         }
         // END: Code to run immediately upon clicking the use button
 
         // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-        ui.get$FromRef("use-meme-button").off("click");
-        ui.get$FromRef("cancel-meme-button").off("click");
+        customizeMemeScreenState.clearButtonClickHandlers();
 
         // Switch back to the create package screen
         sm.switchState("create-package-screen");
@@ -124,38 +109,20 @@ var customizeMemeScreenState = {
 
         // END: Code to run immediately upon clicking the use button
 
-                // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-                customizeMemeScreenState.clearButtonClickHandlers();
+        // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
+        customizeMemeScreenState.clearButtonClickHandlers();
 
-                // Switch back to the create package screen
-                window.location.hash = 'create-package-screen';
-            });
+        // Switch back to the create package screen
+        window.location.hash = "create-package-screen";
+      });
+    });
+  },
 
-            // Attach a click event handler to the cancel button (done here so its not clickable until fully on screen)
-            ui.get$FromRef('cancel-meme-button').on('click', function(){
-                console.log('handling click on the cancel button');
-
-                // START: Code to run immediately upon clicking the cancel button
-                // I'd suggest clearing the form or resetting it to saved data here.
-
-                //   >>> Replace this line with any code that may make sense here <<<
-
-                // END: Code to run immediately upon clicking the cancel button
-
-                // Detach the click event handlers from the main screen buttons (so they're not clicked more than once)
-                customizeMemeScreenState.clearButtonClickHandlers();
-
-                // Switch back to the create package screen
-                window.location.hash = 'create-package-screen';
-            });
-        });
-    },
-
-    clearButtonClickHandlers: function () {
-
-        ui.get$FromRef('use-meme-button').off('click');
-        ui.get$FromRef('cancel-meme-button').off('click');
-    },
+  clearButtonClickHandlers: function() {
+    ui.get$FromRef("use-meme-button").off("click");
+    ui.get$FromRef("cancel-meme-button").off("click");
+    $(".meme-btn").off("click");
+  }
 };
 
 // Add references to jQuery selections of HTML elements that are permanently on the page
