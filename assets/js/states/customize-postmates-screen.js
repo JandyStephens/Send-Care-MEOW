@@ -66,27 +66,32 @@ var customizePostmatesScreenState = {
                 // Create new HTML node for cart list when an item is searched
                 let newItem = $("<li>");
                 let title = $("<h6>");
-                let span = $("<span>");
+                // let span = $("<span>");
                 let searchTerm = { 
-                                "name": $("#menu-item-input").val(), 
-                                "quantity": 1, 
-                                "size": "small" 
-                                }
+                    "name": $("#menu-item-input").val(), 
+                    "quantity": 1, 
+                    "size": "small" 
+                };
 
                 newItem.addClass("list-group-item d-flex justify-content-between lh-condensed");
-                span.addClass("text-muted");
+                // span.addClass("text-muted");
                 title.addClass("my-0");
 
                 manifestItems.push(searchTerm);
-                span.text("$" + Math.ceil(Math.random() * 15));
+                // span.text("$" + Math.ceil(Math.random() * 15));
                 title.text(searchTerm.name);
                 newItem.append(title);
-                newItem.append(span);
+                // newItem.append(span);
+
+                // If there's nothing in the cart, clear the "Empty" notifier
+                if ($('.cart-sub-group').children().eq(0).text() === '(Empty)') {
+                    $('.cart-sub-group').empty();
+                }
 
                 $(".cart-sub-group").append(newItem);
                 console.log(manifestItems);
 
-                
+                $('.package-item-count').text(manifestItems.length);
             });
             // Attach a click event handler to the use button (done here so its not clickable until fully on screen)
             ui.get$FromRef('use-postmates-button').on('click', function () {
