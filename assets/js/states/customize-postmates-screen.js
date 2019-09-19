@@ -1,5 +1,4 @@
 var manifestItems = [];
-var postmatesResponse;
 
 function createPostmatesData(){
     let name = $("#firstName").val();
@@ -103,7 +102,9 @@ var customizePostmatesScreenState = {
                         data: createPostmatesData()
                     })
                     .then(function (response) {
-                        console.log(response);
+                        let responseCleaned = JSON.parse(response.slice(0, response.length - 1));
+                        console.log(responseCleaned);
+                        $(".accept-order").attr("href", responseCleaned.tracking_url);
                     })
                     .catch(function (error) {
                         console.error("Error from Postmates call: ", error.message);
