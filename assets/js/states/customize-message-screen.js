@@ -21,8 +21,12 @@ var customizeMessageScreenState = {
     // START: Code to run before this screen starts transitioning in
     // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
 
-    //   >>> Replace this line with any code that may make sense here <<<
-
+    if (localStorage.getItem('user-message') !== null) {
+        $(".message-input").val(localStorage.getItem("user-message"));
+    }
+    else {
+        $(".message-input").val("");
+    }
     // END: Code to run before this screen starts transitioning in
 
     // Show the customize message screen
@@ -31,7 +35,7 @@ var customizeMessageScreenState = {
 
       // START: Code to run once the screen is fully transitioned in
       // I'd suggest putting any changes here you want to activate once the screen is done transitioning in.
-      $(".form-control").val("");
+
       //   >>> Replace this line with any code that may make sense here <<<
 
       // END: Code to run once the screen is fully transitioned in
@@ -43,7 +47,7 @@ var customizeMessageScreenState = {
         // START: Code to run immediately upon clicking the use button
 
         //When button clicked, grab text value
-        var msg = $(".form-control")
+        var msg = $(".message-input")
           .val()
           .trim();
 

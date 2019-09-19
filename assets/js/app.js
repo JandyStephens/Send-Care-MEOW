@@ -51,6 +51,13 @@ var app = (function(){
 
                     // Switch to the state specified by the new window location hash
                     sm.switchState(window.location.hash.slice(1)); // Slicing 1 here is grabbing the string minus the first character
+
+                    // Scroll to the top
+                    TweenMax.to(window, 1, {
+                        scrollTo: {
+                          y: 0,
+                        },
+                    });
                 }
             });
         },
