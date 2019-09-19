@@ -11,6 +11,9 @@ var app = (function(){
             // Open the database we'll be using to save data
             database.open();
 
+            // Clear localStorage for now to prevent old Care Packages from showing up
+            localStorage.clear();
+
             // Attach an event handler to the page unloading; so we can safely close the database if we need to
             $(window).on('unload', function(){
                 console.log('handling page unloading');
