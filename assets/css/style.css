@@ -43,6 +43,7 @@ section {
 .spinny {
   left: 50%;
   display: block;
+  font-size: 300%;
   text-align: center;
   transform: translateX(-50%);
   -webkit-transform: translate(-50%, 0);
