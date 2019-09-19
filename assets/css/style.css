@@ -120,3 +120,22 @@ input::-webkit-input-placeholder {
   font-size: 150%;
   border-radius: 25px;
 }
+
+/* .gifUrl */
+/* .showGifs  */
+/* .imgDiv */
+.gif-images {
+  max-width: 320px;
+  max-height: 300px;
+  min-width: 320px;
+  min-height: 300px;
+  /* align-items: center; */
+  padding: 0px 5px 0px 5px;
+  margin: 0% 2.5% 0% 2.5%;
+  /* display: inline; */
+  /* float: center; */
+}
+
+.gif-results {
+  display: flex;
+}
