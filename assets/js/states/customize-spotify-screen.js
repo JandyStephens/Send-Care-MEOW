@@ -37,6 +37,11 @@ var customizeSpotifyScreenState = {
             // Disable the relevant button
             ui.get$FromRef('select-playlist-buttons').filter(`button[data-playlist-id="${customizeSpotifyScreenState.playlistID}"]`).attr('disabled', true);
         }
+        else {
+
+            // Enable any disabled button that exists
+            ui.get$FromRef('select-playlist-buttons').filter(':disabled').attr('disabled', false);
+        }
 
         // END: Code to run before this screen starts transitioning in
 
@@ -80,6 +85,12 @@ var customizeSpotifyScreenState = {
 
                     // Update our saved playlist ID
                     customizeSpotifyScreenState.savedPlaylistID = customizeSpotifyScreenState.playlistID;
+                }
+                // If we don't have any playlist stored, don't do anything
+                else if (customizeSpotifyScreenState.savedPlaylistID === '') {
+
+                    // Exit the function here
+                    return;
                 }
 
                 // END: Code to run immediately upon clicking the use button

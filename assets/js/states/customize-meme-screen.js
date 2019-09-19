@@ -21,8 +21,31 @@ var customizeMemeScreenState = {
   loadState: function(prevState) {
     // START: Code to run before this screen starts transitioning in
     // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
-    $(".gif-results").empty();
-    $(".meme-input").val("");
+    if (localStorage.getItem('meme-input') !== null) {
+        $(".gif-results").empty();
+        $(".meme-input").val(localStorage.getItem('meme-input'));
+
+        localSelection = [];
+        for (let i = 0; i < 3; i++) {
+          // console.log(response.data[i].images.original.url);
+          var gifUrl = localStorage.getItem("gif" + i);
+          var gifImg = $("<img>");
+          gifImg
+            .attr("class", "gif-images")
+            .attr("src", gifUrl)
+            .attr("alt", "gifs");
+          $(".gif-results").prepend(gifImg);
+          localSelection.push(gifUrl);
+        }
+
+        $(".use-meme-button").show();
+    }
+    else {
+        $(".gif-results").empty();
+        $(".meme-input").val("");
+
+        $(".use-meme-button").hide();
+    }
 
     // END: Code to run before this screen starts transitioning in
 
@@ -85,7 +108,7 @@ var customizeMemeScreenState = {
         // START: Code to run immediately upon clicking the use button
         // I'd suggest putting any validation code here; so we can 'return' the function before the transitioning-out code runs.
         // I'd also suggest saving the form data for usage later using 'database.saveObject(saveName, objectToSave)' once the form has been validated.
-
+        localStorage.setItem("meme-input", $(".meme-input").val().trim());
         for (let i = 0; i < localSelection.length; i++) {
           localStorage.setItem("gif" + i, localSelection[i]);
         }
@@ -95,7 +118,7 @@ var customizeMemeScreenState = {
         customizeMemeScreenState.clearButtonClickHandlers();
 
         // Switch back to the create package screen
-        sm.switchState("create-package-screen");
+        window.location.hash = "create-package-screen";
       });
 
       // Attach a click event handler to the cancel button (done here so its not clickable until fully on screen)

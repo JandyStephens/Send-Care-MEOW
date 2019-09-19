@@ -52,7 +52,7 @@ var previewScreenState = {
       for (i = 0; i < 3; i++) {
         var gifUrl = localStorage.getItem("gif" + i);
         var imgDiv = $("<img>");
-        imgDiv.attr("src", gifUrl);
+        imgDiv.attr("src", gifUrl).attr("class","gif-images");
         $(".showGifs").append(imgDiv);
       }
 

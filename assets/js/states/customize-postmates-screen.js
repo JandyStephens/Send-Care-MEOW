@@ -23,6 +23,48 @@ function createPostmatesData(){
       }
 }
 
+function storePostmatesFormValues(){
+    database.saveObject('postmates-form-data', {
+        firstName: $('#firstName').val(),
+        lastName: $('#lastName').val(),
+        phoneNumber: $('#phoneNumber').val(),
+        friendAddress: $("#friend-address").val(),
+        friendCity: $("#friend-city").val(),
+        friendState: $("#friend-state").val(),
+        friendZip: $("#friend-zip").val(),
+        pickupName: $('#pickup-name').val(),
+        pickupAddress: $("#pickup-address").val(), 
+        pickupCity: $("#pickup-city").val(),
+        pickupState: $("#pickup-state").val(), 
+        pickupZip: $("#pickup-zip").val(),
+        manifestItems: manifestItems,
+    });
+}
+
+function loadPostmatesFormValues(){
+    var savedPostmatesFormData = database.loadObject('postmates-form-data');
+
+    $('#firstName').val(savedPostmatesFormData.firstName);
+    $('#lastName').val(savedPostmatesFormData.lastName);
+    $('#phoneNumber').val(savedPostmatesFormData.phoneNumber);
+    $("#friend-address").val(savedPostmatesFormData.friendAddress);
+    $("#friend-city").val(savedPostmatesFormData.friendCity);
+    $("#friend-state").val(savedPostmatesFormData.friendState);
+    $("#friend-zip").val(savedPostmatesFormData.friendZip);
+    $('#pickup-name').val(savedPostmatesFormData.pickupName);
+    $("#pickup-address").val(savedPostmatesFormData.pickupAddress);
+    $("#pickup-city").val(savedPostmatesFormData.pickupCity);
+    $("#pickup-state").val(savedPostmatesFormData.pickupState);
+    $("#pickup-zip").val(savedPostmatesFormData.pickupZip);
+
+    manifestItems = [];
+    $('.cart-sub-group').empty();
+    for (let i = 0; i < savedPostmatesFormData.manifestItems.length; i++) {
+
+        customizePostmatesScreenState.pushNewItemToMenu(savedPostmatesFormData.manifestItems[i].name);
+    }
+}
+
 var customizePostmatesScreenState = {
 
     unloadState: function (nextState) {
@@ -49,7 +91,10 @@ var customizePostmatesScreenState = {
         // START: Code to run before this screen starts transitioning in
         // I'd suggest putting any changes here you want to be visible on the screen when it transitions in.
 
-        //   >>> Replace this line with any code that may make sense here <<<
+        if (database.exists('postmates-form-data')) {
+
+            loadPostmatesFormValues();
+        }
 
         // END: Code to run before this screen starts transitioning in
 
@@ -62,30 +107,8 @@ var customizePostmatesScreenState = {
 
             ui.get$FromRef('add-to-cart').on('click', function () {
 
-                // Create new HTML node for cart list when an item is searched
-                let newItem = $("<li>");
-                let title = $("<h6>");
-                let span = $("<span>");
-                let searchTerm = { 
-                                "name": $("#menu-item-input").val(), 
-                                "quantity": 1, 
-                                "size": "small" 
-                                }
-
-                newItem.addClass("list-group-item d-flex justify-content-between lh-condensed");
-                span.addClass("text-muted");
-                title.addClass("my-0");
-
-                manifestItems.push(searchTerm);
-                span.text("$" + Math.ceil(Math.random() * 15));
-                title.text(searchTerm.name);
-                newItem.append(title);
-                newItem.append(span);
-
-                $(".cart-sub-group").append(newItem);
-                console.log(manifestItems);
-
-                
+                customizePostmatesScreenState.pushNewItemToMenu($("#menu-item-input").val());
+                $("#menu-item-input").val('');
             });
             // Attach a click event handler to the use button (done here so its not clickable until fully on screen)
             ui.get$FromRef('use-postmates-button').on('click', function () {
@@ -109,6 +132,8 @@ var customizePostmatesScreenState = {
                     .catch(function (error) {
                         console.error("Error from Postmates call: ", error.message);
                     });
+
+                storePostmatesFormValues();
 
                 // END: Code to run immediately upon clicking the use button
 
@@ -139,10 +164,44 @@ var customizePostmatesScreenState = {
         });
     },
 
+    pushNewItemToMenu: function (itemName) {
+
+        // Create new HTML node for cart list when an item is searched
+        let newItem = $("<li>");
+        let title = $("<h6>");
+        // let span = $("<span>");
+        let searchTerm = { 
+            "name": itemName, 
+            "quantity": 1, 
+            "size": "small" 
+        };
+
+        newItem.addClass("list-group-item d-flex justify-content-between lh-condensed");
+        // span.addClass("text-muted");
+        title.addClass("my-0");
+
+        manifestItems.push(searchTerm);
+        // span.text("$" + Math.ceil(Math.random() * 15));
+        title.text(searchTerm.name);
+        newItem.append(title);
+        // newItem.append(span);
+
+        // If there's nothing in the cart, clear the "Empty" notifier
+        if ($('.cart-sub-group').children().eq(0).text() === '(Empty)') {
+            $('.cart-sub-group').empty();
+        }
+
+        $(".cart-sub-group").append(newItem);
+        console.log(manifestItems);
+
+        $('.package-item-count').text(manifestItems.length);
+    },
+
     clearButtonClickHandlers: function () {
 
         ui.get$FromRef('use-postmates-button').off('click');
         ui.get$FromRef('cancel-postmates-button').off('click');
+        ui.get$FromRef('add-to-cart').off('click');
     },
 };
 
