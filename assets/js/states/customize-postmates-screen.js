@@ -142,6 +142,7 @@ var customizePostmatesScreenState = {
 
         ui.get$FromRef('use-postmates-button').off('click');
         ui.get$FromRef('cancel-postmates-button').off('click');
+        ui.get$FromRef('add-to-cart').off('click');
     },
 };
 
