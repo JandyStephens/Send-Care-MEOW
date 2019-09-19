@@ -19,9 +19,6 @@ var app = (function(){
                 database.close();
             });
 
-            // Hide all sections to begin with
-            $('section').hide();
-
             // Set our starting page
             var startingPage = 'landing-screen';
 

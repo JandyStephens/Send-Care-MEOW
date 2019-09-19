@@ -11,12 +11,33 @@ body {
 }
 
 section {
+  display: none;
   width: 100%;
   top: 0px;
 }
 
 #preview-screen {
   margin-bottom: 120px;
+}
+
+.customize-button {
+  margin: 0px auto;
+  width: 75%;
+  height: 75%;
+  text-align: center;
+}
+
+.package-item {
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.package-item:hover {
+  background-color: #e0d0d0;
+}
+
+.customize-meme-button svg {
+  border-radius: 3px;
 }
 
 .spotify-player-container {
@@ -48,6 +69,10 @@ section {
   transform: translateX(-50%);
   -webkit-transform: translate(-50%, 0);
   animation: fade_move_down 3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+.clear-both {
+  clear: both;
 }
 
 input::-webkit-input-placeholder {
@@ -93,7 +118,4 @@ input::-webkit-input-placeholder {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 150%;
   border-radius: 25px;
-}
-
-element.style {
 }
