@@ -1,21 +1,45 @@
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-color: lightgrey;
 }
 
-body{
-    font-family: 'Europa', sans-serif;
+body {
+  font-family: "Europa", sans-serif;
 }
 
-section{
-    width: 100%;
-    top: 0px;
+section {
+  display: none;
+  width: 100%;
+  top: 0px;
 }
 
 #preview-screen {
   margin-bottom: 120px;
+}
+
+.customize-button {
+  margin: 0px auto;
+  width: 75%;
+  height: 75%;
+  text-align: center;
+  filter: drop-shadow(0px 0px 2px #000000);
+}
+
+.package-item {
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.package-item:hover {
+  background-color: #e0d0d0;
+}
+
+.customize-meme-button svg {
+  border-radius: 3px;
 }
 
 .spotify-player-container {
@@ -30,26 +54,31 @@ section{
   margin: 0px auto;
 }
 
-.hero{
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    position: relative;
-    align-items: center;
-    justify-content: center;
+.hero {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
 }
 
 .spinny {
   left: 50%;
   display: block;
+  font-size: 300%;
   text-align: center;
   transform: translateX(-50%);
   -webkit-transform: translate(-50%, 0);
   animation: fade_move_down 3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
 }
 
-input::-webkit-input-placeholder{
-    opacity: 0.5;
+.clear-both {
+  clear: both;
+}
+
+input::-webkit-input-placeholder {
+  opacity: 0.5;
 }
 
 .site-info-container {
@@ -80,9 +109,9 @@ input::-webkit-input-placeholder{
   }
 }
 
-.use-meme-button {
+/* .use-meme-button {
   display: none;
-}
+} */
 
 .showMsg {
   padding: 3%;
@@ -91,4 +120,23 @@ input::-webkit-input-placeholder{
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 150%;
   border-radius: 25px;
+}
+
+/* .gifUrl */
+/* .showGifs  */
+/* .imgDiv */
+.gif-images {
+  max-width: 320px;
+  max-height: 300px;
+  min-width: 320px;
+  min-height: 300px;
+  /* align-items: center; */
+  padding: 0px 5px 0px 5px;
+  margin: 0% 2.5% 0% 2.5%;
+  /* display: inline; */
+  /* float: center; */
+}
+
+.gif-results {
+  display: flex;
 }
