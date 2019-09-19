@@ -1,17 +1,18 @@
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
-body{
-    font-family: 'Europa', sans-serif;
+body {
+  font-family: "Europa", sans-serif;
 }
 
-section{
-    width: 100%;
-    top: 0px;
+section {
+  width: 100%;
+  top: 0px;
 }
 
 #preview-screen {
@@ -30,13 +31,13 @@ section{
   margin: 0px auto;
 }
 
-.hero{
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    position: relative;
-    align-items: center;
-    justify-content: center;
+.hero {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
 }
 
 .spinny {
@@ -48,8 +49,8 @@ section{
   animation: fade_move_down 3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
 }
 
-input::-webkit-input-placeholder{
-    opacity: 0.5;
+input::-webkit-input-placeholder {
+  opacity: 0.5;
 }
 
 .site-info-container {
@@ -91,4 +92,7 @@ input::-webkit-input-placeholder{
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 150%;
   border-radius: 25px;
+}
+
+element.style {
 }
