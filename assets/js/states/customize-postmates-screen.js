@@ -1,28 +1,5 @@
 var manifestItems = [];
 
-function createPostmatesData(){
-    let name = $("#firstName").val();
-    let pickupAddress = $("#pickup-address").val() + ", " + 
-                        $("#pickup-city").val() + ", " + 
-                        $("#pickup-state").val() + ", " + 
-                        $("#pickup-zip").val();
-
-    let friendAddress = $("#friend-address").val() + ", " + 
-                        $("#friend-city").val() + ", " + 
-                        $("#friend-state").val() + ", " + 
-                        $("#friend-zip").val();
-    return {
-        "manifest": name + "'s care package!",
-        "manifest_items": manifestItems,
-        "pickup_name": $("#pickup-name").val(),
-        "pickup_address": pickupAddress,
-        "pickup_phone_number": "4155555555",
-        "dropoff_name": name + "'s house",
-        "dropoff_address": friendAddress,
-        "dropoff_phone_number": $("#phoneNumber").val()
-      }
-}
-
 function storePostmatesFormValues(){
     database.saveObject('postmates-form-data', {
         firstName: $('#firstName').val(),
@@ -118,21 +95,7 @@ var customizePostmatesScreenState = {
                 // I'd suggest putting any validation code here; so we can 'return' the function before the transitioning-out code runs.
                 // I'd also suggest saving the form data for usage later using 'database.saveObject(saveName, objectToSave)' once the form has been validated.
 
-                $.ajax({
-                        url: " https://www.jsea.dev/pm.php",
-                        method: "POST",
-
-                        data: createPostmatesData()
-                    })
-                    .then(function (response) {
-                        let responseCleaned = JSON.parse(response.slice(0, response.length - 1));
-                        console.log(responseCleaned);
-                        $(".accept-order").attr("href", responseCleaned.tracking_url);
-                    })
-                    .catch(function (error) {
-                        console.error("Error from Postmates call: ", error.message);
-                    });
-
+                // Store the postmates form data into our database
                 storePostmatesFormValues();
 
                 // END: Code to run immediately upon clicking the use button

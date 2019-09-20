@@ -31,9 +31,93 @@ var previewScreenState = {
     }
 
     // END: Code to run before this screen starts transitioning in
-    $(".accept-order").click(function(){
 
-    });
+    // Check to see if we have an order to accept
+    if (database.exists('postmates-form-data')) {
+
+      // Grab the postmates form data from the database
+      var savedPostmatesFormData = database.loadObject('postmates-form-data');
+
+      // Show the postmates section for the order
+      $('.postmates-order').show();
+
+      // Display the manifest items
+      var manifestList = '';
+      savedPostmatesFormData.manifestItems.forEach(function(value, index){
+        if (index !== 0) {
+          manifestList += ', ';
+        }
+        manifestList += value.name;
+      });
+      $('.order-manifest').text(manifestList);
+
+      // Attach a click handler to the accept button
+      $(".accept-order").click(function(){
+        console.log('handling click on the accept order button');
+  
+        // Disable this click event here so that orders aren't placed multiple times accidentally
+        $('.accept-order').attr('disabled', true);
+
+        // Clear the order error if it exists
+        $('.order-error').text('');
+
+        // Change the button to say 'Accepting' instead of 'Accept'
+        $('.accept-order').text('Accepting Order...');
+  
+        // Declare this here to take advantage of Closure scoping
+        let responseCleaned;
+  
+        $.ajax({
+          url: " https://www.jsea.dev/pm.php", // This pm.php file is also in the repo at the root level with API keys removed. It was required to resolve the CORS issue of Postmates' authentication not allowing direct AJAX calls.
+          method: "POST",
+          data: previewScreenState.createPostmatesData(),
+        })
+        .done(function (response) {
+          // NOTE: This solves a weird, but consistent, issue where a '1' is tagged on to the end of each 'response' string
+          // console.log(response); // Uncomment to see the issue this solves
+          responseCleaned = JSON.parse(response.slice(0, response.length - 1));
+  
+          // Remove the accept order button's click event here so that orders aren't placed multiple times
+          $('.accept-order').off('click');
+  
+          // Now programmatically open a new window with JavaScript, with no opener or referrer, and set to the screen size
+          window.open(responseCleaned.tracking_url, '_blank', `noopener,noreferrer,width=${screen.width},height=${screen.height}`);
+  
+          // Change the button to say 'View' instead of 'Accept' now that it has been accepted
+          $('.accept-order').text('View Postmates Order!');
+  
+          // Finally, attach a new click event handler that just opens the Order Delivery screen in case it got closed by the user accidentally
+          $('.accept-order').on('click', function () {
+            console.log('opening order delivery again');
+  
+            // Programmatically open a new window with JavaScript, with no opener or referrer, and set to the screen size
+            // NOTE: We still have access to 'responseCleaned' here because of Closures
+            window.open(responseCleaned.tracking_url, '_blank', `noopener,noreferrer,width=${screen.width},height=${screen.height}`);
+          });
+        })
+        .fail(function (error) {
+          console.error("Error from Postmates call: ", error.message);
+  
+          // Show the order error so the sender can correct the issue
+          $('.order-error').text(error.message);
+  
+          // Set our text to say 'Accept' again to allow them to make another attempt at accepting the request
+          $('.accept-order').text('Try Accepting Postmates Order Again!');
+        })
+        .always(function () {
+  
+          // Re-enable the order button here now that the AJAX request is complete
+          $('.accept-order').attr('disabled', false);
+        })
+      });
+    }
+    // If there is no postmates order to accept
+    else {
+
+      // Hide the postmates section for the non-existent order
+      $('.postmates-order').hide();
+    }
+
     // Show the preview screen
     ui.showByRef("preview-screen", function () {
       console.log("done showing preview screen");
@@ -98,7 +182,40 @@ var previewScreenState = {
   clearButtonClickHandlers: function () {
     ui.get$FromRef("use-preview-button").off("click");
     ui.get$FromRef("cancel-preview-button").off("click");
-  }
+    ui.get$(".accept-order").off("click");
+  },
+
+  createPostmatesData: function () {
+    console.log('creating postmates data');
+
+    // Grab the postmates form data from the database
+    var savedPostmatesFormData = database.loadObject('postmates-form-data');
+
+    let name = savedPostmatesFormData.firstName + " " + savedPostmatesFormData.lastName;
+
+    let pickupAddress = savedPostmatesFormData.pickupAddress + ", " + 
+                        savedPostmatesFormData.pickupCity + ", " + 
+                        savedPostmatesFormData.pickupState + ", " + 
+                        savedPostmatesFormData.pickupZip;
+
+    let friendAddress = savedPostmatesFormData.friendAddress + ", " + 
+                        savedPostmatesFormData.friendCity + ", " + 
+                        savedPostmatesFormData.friendState + ", " + 
+                        savedPostmatesFormData.friendZip;
+
+    let manifestItems = savedPostmatesFormData.manifestItems;
+
+    return {
+      "manifest": name + "'s care package!",
+      "manifest_items": manifestItems,
+      "pickup_name": savedPostmatesFormData.pickupName,
+      "pickup_address": pickupAddress,
+      "pickup_phone_number": "4155555555",
+      "dropoff_name": name + "'s place",
+      "dropoff_address": friendAddress,
+      "dropoff_phone_number": savedPostmatesFormData.phoneNumber
+    };
+  },
 };
 
 // Add references to jQuery selections of HTML elements that are permanently on the page
