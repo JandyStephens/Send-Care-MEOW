@@ -84,13 +84,52 @@ var customizePostmatesScreenState = {
 
             ui.get$FromRef('add-to-cart').on('click', function () {
 
-                customizePostmatesScreenState.pushNewItemToMenu($("#menu-item-input").val());
-                $("#menu-item-input").val('');
-            });
-            // Attach a click event handler to the use button (done here so its not clickable until fully on screen)
-            ui.get$FromRef('use-postmates-button').on('click', function () {
-                console.log('handling click on the use button');
+                // If there is an item to add
+                if ($("#menu-item-input").val().trim().length !== 0) {
 
+                    customizePostmatesScreenState.pushNewItemToMenu($("#menu-item-input").val().trim());
+                    $("#menu-item-input").val('');
+                }
+            });
+
+            ui.get$('#menu-item-input').on('keydown', function (jqueryEvent) {
+
+                // If we've pressed an enter key
+                if (jqueryEvent.which == 13) {
+
+                    // Prevent the form from actually getting submitted
+                    jqueryEvent.preventDefault();
+
+                    // If there is an item to add
+                    if ($("#menu-item-input").val().trim().length !== 0) {
+
+                        customizePostmatesScreenState.pushNewItemToMenu($("#menu-item-input").val().trim());
+                        $("#menu-item-input").val('');
+                    }
+                }
+            });
+
+            // Attach a click event handler to the use button (done here so its not clickable until fully on screen)
+            ui.get$('.postmates-order-creator').on('submit', function (jqueryEvent) {
+                console.log('handling click on the use button');
+                
+                // Prevent the form from actually submitting
+                jqueryEvent.preventDefault();
+
+                // Check to make sure we have everything we need to make an order
+                // NOTE: Everything else is being validated by HTML5
+                if (manifestItems.length === 0) {
+
+                    ui.get$('.add-item-needed').show();
+                    return;
+                }
+                // If we have everything we need, make sure the validation text is hidden
+                else {
+                    
+                    ui.get$('.add-item-needed').hide();
+                }
+
+                console.log('WHy am i running')
                 // START: Code to run immediately upon clicking the use button
                 // I'd suggest putting any validation code here; so we can 'return' the function before the transitioning-out code runs.
                 // I'd also suggest saving the form data for usage later using 'database.saveObject(saveName, objectToSave)' once the form has been validated.
@@ -165,6 +204,8 @@ var customizePostmatesScreenState = {
         ui.get$FromRef('use-postmates-button').off('click');
         ui.get$FromRef('cancel-postmates-button').off('click');
         ui.get$FromRef('add-to-cart').off('click');
+        ui.get$('#menu-item-input').off('keydown');
+        ui.get$('.postmates-order-creator').off('submit');
     },
 };
 
